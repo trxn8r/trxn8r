@@ -1,0 +1,1 @@
+[<% tp.file.selection() %>](<% tp.file.selection() %>?utm_campaign=career&utm_medium=obsidian&utm_source=<% tp.file.title %>)
