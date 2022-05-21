@@ -1,0 +1,10 @@
+{
+  "baseFontSize": 4,
+  "theme": "moonstone",
+  "cssTheme": "Obsidian Nord",
+  "translucency": false,
+  "enabledCssSnippets": [
+    "gsteve3-custom-neon80s",
+    "timeline-style-gsteve3"
+  ]
+}

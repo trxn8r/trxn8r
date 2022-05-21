@@ -1,0 +1,182 @@
+
+
+/* 2022-04-18 - NEON 80s */
+/* neon80s: Larger Font */
+.markdown-preview-view,
+.markdown-source-view {
+    font-size: 1rem;
+}
+
+
+/*
+.markdown-source-view
+.markdown-rendered
+.markdown-reading-view
+
+
+*/
+
+
+/* neon80s: Header Border - avoid `---` before each Header - 2022-04-20 */
+.view-content div.HyperMD-header,
+h2,
+.markdown-rendered h3 {
+    /* border-top: 1px; */
+    border-top: 1px dashed var(--accent-2);
+    margin-top: 2em;
+    padding-top: .5em;
+}
+/*
+NOTES: CLASS NAMES:
+
+
+div.cm-line.HyperMD-header
+
+.HyperMD-header1
+.HyperMD-header2
+.HyperMD-header3
+
+*/
+
+
+/*
+body > div.app-container.is-left-sidedock-collapsed.is-right-sidedock-collapsed > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root.maximised > div > div > div.view-content > div.markdown-source-view.cm-s-obsidian.mod-cm6.is-folding > div.cm-editor.ͼ1.ͼ2.ͼ4 > div.cm-scroller > div.cm-contentContainer > div > div:nth-child(14) > span:nth-child(4)
+body
+>
+div.app-container.is-left-sidedock-collapsed.is-right-sidedock-collapsed
+>
+div.horizontal-main-container
+>
+div
+>
+div.workspace-split.mod-vertical.mod-root.maximised
+>
+div
+>
+div
+>
+div.view-content
+>
+div.markdown-source-view.cm-s-obsidian.mod-cm6.is-folding
+>
+div.cm-editor.ͼ1.ͼ2.ͼ4
+>
+div.cm-scroller
+>
+div.cm-contentContainer
+>
+div
+>
+div:nth-child(14)
+>
+span:nth-child(4)
+*/
+
+/*
+    Overriding original border from app.css.
+    Screws up my preview with the larger font size.
+    @gsteve3 2022-04-18
+
+    Prefixed rule with  `.view-content ` to make rule higher priority
+    to override the single `.cm-list-` selector in `app.css`
+
+    .cm-list-1 {
+        padding-bottom: 2rem;
+        border-top: 1px dashed #dcdcdc;
+        margin-top: 3rem;
+        padding-top: 10px;
+    }
+*/
+.view-content .cm-list-1 {
+    /* text-decoration: none; */
+    border-top: none;
+    margin-top: inherit;
+    padding-top: inherit;
+}
+
+/* 2022-04-14 - Obuntu Theme */
+/* OVERRIDE Image Shrink
+.markdown-preview-view img {
+    display: block;
+    margin-top: 20pt;
+    margin-bottom: 20pt;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    transition: transform 0.25s ease;
+}
+*/
+/* .markdown-preview-view img {
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 90%;
+    transition: transform 0.25s ease;
+}
+
+.markdown-preview-view img:hover {
+    transition: none;
+    transform: none;
+} */
+
+
+
+
+.markdown-preview-view img:hover {
+    -webkit-transform: none;
+    transform: none;
+}
+
+img {
+    border: 1px solid #ccc;
+}
+
+/* ul > :not(li.task-list-item[data-task="x"] li,
+ul > :not(li.task-list-item[data-task="X"] li */
+/* body div.markdown-preview-view ul.contains-task-list li.task-list-item ul li,
+body ul > li.task-list-item[data-task="x"] ul li ul li,
+body ul > li.task-list-item[data-task="X"] ul li ul li */
+/* body div.markdown-preview-view ul.contains-task-list li.task-list-item ul li,
+body ul > li.task-list-item[data-task="x"], */
+
+/* document.querySelector("body > div.app-container.is-left-sidedock-collapsed.is-right-sidedock-collapsed > div.horizontal-main-container > div > div.workspace-split.mod-vertical.mod-root.maximised > div.workspace-leaf.mod-active.stayopen > div > div.view-content > div.markdown-reading-view > div.markdown-preview-view.markdown-rendered.node-insert-event.allow-fold-headings.show-indentation-guide.allow-fold-lists.show-frontmatter > div") */
+/* body div.app-container div.view-content div.markdown-reading-view div.markdown-preview-view ul li */
+body div.app-container div.view-content ul.contains-checklist li,
+body .markdown-preview-view ul>li.task-list-item.is-checked,
+body .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task]:not([data-task=" "])
+{
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: dotted;
+    color: green !important;
+}
+
+/* from app.css line 3860 */
+ul > li.task-list-item[data-task="x"],
+ul > li.task-list-item[data-task="X"] {
+    text-decoration: none;
+}
+
+/*
+/* .markdown-source-view { */
+/* .HyperMD-list-line .cm-content,
+.cm-line > span {
+    font-family: 'Cascadia Mono', 'OCR A', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    /* line-height: 3rem; */
+} */
+
+/* .cm-line > span span { */
+.HyperMD-list-line-2 > span {
+    /* line-height: 1rem; */
+}
+.cm-list-1 {
+    padding-bottom: 2rem;
+    border-top: 1px dashed #dcdcdc;
+    margin-top: 3rem;
+    padding-top: 10px;
+}
+*/

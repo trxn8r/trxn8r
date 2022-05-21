@@ -1,0 +1,9 @@
+{
+  "homeNote": "README",
+  "publishPath": "https://career.stevens.pro/",
+  "enableContext": true,
+  "enableOpenUrl": true,
+  "enableGithub": true,
+  "remoteUrl": "https://github.com/gsteve3/greg-stevens-career/",
+  "branch": "main"
+}

@@ -1,0 +1,21 @@
+
+
+/***
+ * Remove weird vertical line
+ * @author @gsteve3
+ * @since 2022-05-19
+
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 10px;
+        background-color: var(--background-secondary);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+}
+ */
+.timeline::after {
+    display: none;
+}

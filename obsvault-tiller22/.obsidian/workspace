@@ -1,0 +1,187 @@
+{
+  "main": {
+    "id": "37ae66ca99924cbd",
+    "type": "split",
+    "children": [
+      {
+        "id": "0bb89b071e43040c",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c034c044768a5a07",
+    "type": "split",
+    "children": [
+      {
+        "id": "34b3473daaba08a9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eca097d4e3c04995",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "b866550adc2f4439",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          },
+          {
+            "id": "8094dc0ddc76d51d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "ee79b0e6631bac3b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "GA",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 839,
+    "collapsed": true
+  },
+  "right": {
+    "id": "a0c6f58548806641",
+    "type": "split",
+    "children": [
+      {
+        "id": "85791a37bc23bac6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cf23bea9cc441576",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "957e2c42f492ab7a",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "1a9af2b10da813c0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f4b02f4166f42ab1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "alphabetical",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8c1470811a0dcb1b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "2a4db105ccfb2126",
+            "type": "leaf",
+            "state": {
+              "type": "side-panel-control-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "be00d42e6a37127c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "139c95b3e2d6567a",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "12bf5d6433ef845e",
+            "type": "leaf",
+            "state": {
+              "type": "Saved Queries View",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "0bb89b071e43040c",
+  "lastOpenFiles": [
+    "timelines/timeline1/Timeline1.2 - Expanded.md",
+    "tools/obsidian/Use callouts - Obsidian Help.md",
+    "timelines/timeline1/Timeline1.md",
+    "resume/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.5.3.pdf",
+    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v1.pdf",
+    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.2.pdf",
+    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.1.pdf",
+    "resume/README.md",
+    "resume/2022-05-11 Paper Resume Scratchpad.md",
+    "organizations/tiller/README.md"
+  ]
+}

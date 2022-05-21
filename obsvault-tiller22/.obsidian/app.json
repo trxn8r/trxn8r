@@ -1,0 +1,35 @@
+{
+  "alwaysUpdateLinks": true,
+  "promptDelete": false,
+  "trashOption": "local",
+  "newFileLocation": "folder",
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "./_assets/Timeline1.2 - Expanded",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 75
+  },
+  "showFrontmatter": true,
+  "legacyEditor": false,
+  "livePreview": true,
+  "communityPluginSortOrder": "alphabetical",
+  "strictLineBreaks": true,
+  "autoPairMarkdown": true,
+  "defaultViewMode": "source",
+  "foldIndent": true,
+  "foldHeading": true,
+  "readableLineLength": false,
+  "showLineNumber": true,
+  "spellcheckLanguages": [
+    "en-CA"
+  ],
+  "spellcheck": true,
+  "communityThemeSortOrder": "download",
+  "autoPairBrackets": true,
+  "lineWrap": false,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "newFileFolderPath": "_attachments"
+}

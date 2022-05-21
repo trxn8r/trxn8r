@@ -1,0 +1,6 @@
+{
+  "userIllegalSymbols": [],
+  "ignoredFiles": {},
+  "ignoreRegex": "templat*|daily-notes*|career/*/r*|includes*",
+  "useFileOpenHook": false
+}

@@ -1,0 +1,259 @@
+
+
+/* 2022-04-18 - NEON 80s */
+/* neon80s: Larger Font */
+.markdown-preview-view,
+.markdown-source-view {
+    font-size: 1rem;
+}
+
+
+
+
+
+
+/* Embeds - Subtler */
+.internal-embed div.markdown-embed-title {
+    font-size: .7rem;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    font-style: italic;
+    font-weight: lighter;
+
+    display: none;
+}
+
+
+/*
+app.css:3788
+
+    .markdown-embed, .file-embed {
+        border-top: 1px solid var(--background-modifier-border);
+        border-bottom: 1px solid var(--background-modifier-border);
+        padding: 4px 0;
+        margin: 28px 0;
+    }
+*/
+
+
+
+
+div.markdown-embed {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+/* div.markdown-embed-content also has `.markdown-embed-page` class */
+
+span.internal-embed div.markdown-embed,
+/* span.internal-embed div.markdown-embed-content, */
+/* span.internal-embed div.markdown-embed-page, */
+.markdown-source-view .markdown-embed {
+    /* border: 1px dotted var(--background-modifier-border) !important; */
+    /* border-width: 1px 0 !important; */
+    /* border: 0 !important; */
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+
+}
+
+span.internal-embed div.markdown-embed-content {
+    /* border: 0px dotted var(--accent-1) !important; */
+    border: none !important;
+    /* border-bottom: 1px !important; */
+}
+
+
+
+
+.markdown-preview-view .internal-embed,
+.markdown-source-view .internal-embed {
+    border: none !important;
+}
+
+
+/*
+.markdown-source-view
+.markdown-rendered
+.markdown-reading-view
+
+
+*/
+
+
+/* neon80s: Header Border - avoid `---` before each Header - 2022-04-20 */
+.view-content div.HyperMD-header,
+h2 {
+/* .markdown-rendered h3 { */
+    /* border-top: 1px; */
+    border-top: 1px dashed var(--background-modifier-border) !important;
+    margin-top: 1rem;
+    padding-top: .5rem;
+    margin-left: -0.5rem !important;
+}
+/*
+NOTES: CLASS NAMES:
+
+
+div.cm-line.HyperMD-header
+
+.HyperMD-header1
+.HyperMD-header2
+.HyperMD-header3
+
+*/
+
+
+.view-content .cm-list-1 {
+    /* text-decoration: none; */
+    border-top: none;
+    margin-top: inherit;
+    padding-top: inherit;
+}
+
+
+/* 2022-04-14 - Obuntu Theme and Neon 80s - OVERRIDE Image Shrink Transformation on hover */
+.markdown-preview-view img:hover {
+    -webkit-transform: none;
+    transform: none;
+}
+
+img {
+    border: 1px solid #ccc;
+}
+
+
+
+/* 2022-05-12 - Fix list-items on long text causing `::before` to start a new line */
+ul li:not(.task-list-item)::before {
+  /* override inline-block */
+  display: inline !important;
+}
+
+
+/* *** *** *** */
+
+
+/*
+From `<style>` block with app
+.markdown-embed, .file-embed {
+    border-top: 1px solid var(--background-modifier-border);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding: 4px 0;
+    margin: 28px 0;
+}
+
+<div>
+  <p>
+    <span
+      alt="header-footer.include"
+      src="header-footer.include"
+      class="internal-embed is-loaded"
+      ><div class="markdown-embed">
+        <div class="markdown-embed-title">header-footer.include</div>
+        <div class="markdown-embed-content markdown-embed-page">
+          <div
+            class="markdown-preview-view markdown-rendered node-insert-event show-indentation-guide header"
+          >
+            <div
+              class="markdown-preview-sizer markdown-preview-section"
+              style="padding-bottom: 0px; min-height: 285px"
+            >
+              <div
+                class="markdown-preview-pusher"
+                style="width: 1px; height: 0.1px; margin-bottom: 0px"
+              ></div>
+              <div class="has-copy-button">
+                <pre
+                  class="frontmatter language-yaml"
+                  tabindex="0"
+                ><code class="language-yaml is-loaded"><span class="token key atrule">cssclass</span><span class="token punctuation">:</span> header</code><button class="copy-code-button">Copy</button><button class="copy-code-button" type="button">Copy</button></pre>
+                <div class="frontmatter-container" style="display: none">
+                  <div class="frontmatter-container-header">
+                    <div
+                      class="frontmatter-collapse-indicator collapse-indicator collapse-icon"
+                    >
+                      <svg
+                        viewBox="0 0 100 100"
+                        class="right-triangle"
+                        width="6"
+                        height="6"
+                      >
+                        <path
+                          fill="currentColor"
+                          stroke="currentColor"
+                          d="M94.9,20.8c-1.4-2.5-4.1-4.1-7.1-4.1H12.2c-3,0-5.7,1.6-7.1,4.1c-1.3,2.4-1.2,5.2,0.2,7.6L43.1,88c1.5,2.3,4,3.7,6.9,3.7 s5.4-1.4,6.9-3.7l37.8-59.6C96.1,26,96.2,23.2,94.9,20.8L94.9,20.8z"
+                        ></path>
+                      </svg>
+                    </div>
+                    Metadata
+                  </div>
+                </div>
+              </div>
+              <div>
+                <blockquote>
+                  <hr />
+                  <p>
+                    ||| <strong>Greg Stevens</strong> |||
+                    <a
+                      aria-label-position="top"
+                      aria-label="tel:+14034986809"
+                      rel="noopener"
+                      class="external-link"
+                      href="tel:+14034986809"
+                      target="_blank"
+                      >403.498.6809</a
+                    >
+                    |||
+                    <a
+                      aria-label-position="top"
+                      aria-label="mailto:greg@dalyle.ca"
+                      rel="noopener"
+                      class="external-link"
+                      href="mailto:greg@dalyle.ca"
+                      target="_blank"
+                      >greg@dalyle.ca</a
+                    >
+                    |||
+                    <a
+                      aria-label-position="top"
+                      aria-label="https://career.stevens.pro/?utm_campaign=header-footer.include&amp;utm_source=obsdmd-vault"
+                      rel="noopener"
+                      class="external-link"
+                      href="https://career.stevens.pro/?utm_campaign=header-footer.include&amp;utm_source=obsdmd-vault"
+                      target="_blank"
+                      >career.stevens.pro</a
+                    >
+                  </p>
+                  <hr />
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="markdown-embed-link" aria-label="Open link">
+          <svg viewBox="0 0 100 100" class="link" width="20" height="20">
+            <svg
+              style="width: 24px; height: 24px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z"
+              ></path>
+            </svg>
+          </svg>
+        </div></div
+    ></span>
+  </p>
+</div>
+]
+
+
+
+
+
+*/

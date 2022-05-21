@@ -1,0 +1,14 @@
+{
+  "wrapperTags": [
+    {
+      "name": "Underline",
+      "startTag": "<u>",
+      "endTag": "</u>"
+    },
+    {
+      "name": "inlinecode",
+      "startTag": "`",
+      "endTag": "`"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "style": "number",
+  "min_depth": 2,
+  "max_depth": 6,
+  "externalStyle": "DevonThink",
+  "supportAllMatchers": false
+}

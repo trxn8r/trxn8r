@@ -1,0 +1,84 @@
+{
+  "customFolder": "Day Planners",
+  "mode": 1,
+  "mermaid": true,
+  "notesToDates": [
+    {
+      "notePath": "daily/2021-11-16.md",
+      "date": "Tue Nov 16 2021"
+    },
+    {
+      "notePath": "daily/2021-11-17.md",
+      "date": "Wed Nov 17 2021"
+    },
+    {
+      "notePath": "daily/2021-11-24.md",
+      "date": "Wed Nov 24 2021"
+    },
+    {
+      "notePath": "daily/2021-11-27.md",
+      "date": "Sat Nov 27 2021"
+    },
+    {
+      "notePath": "daily/2021-11-29.md",
+      "date": "Mon Nov 29 2021"
+    },
+    {
+      "notePath": "daily/2021-12-23.md",
+      "date": "Thu Dec 23 2021"
+    },
+    {
+      "notePath": "daily/2022-01-19.md",
+      "date": "Wed Jan 19 2022"
+    },
+    {
+      "notePath": "daily/2022-01-21.md",
+      "date": "Fri Jan 21 2022"
+    },
+    {
+      "notePath": "daily/2022-01-25.md",
+      "date": "Tue Jan 25 2022"
+    },
+    {
+      "notePath": "daily/2022-01-28.md",
+      "date": "Fri Jan 28 2022"
+    },
+    {
+      "notePath": "daily/2022-01-30.md",
+      "date": "Sun Jan 30 2022"
+    },
+    {
+      "notePath": "daily/2022-02-02.md",
+      "date": "Wed Feb 02 2022"
+    },
+    {
+      "notePath": "daily/2022-02-03.md",
+      "date": "Thu Feb 03 2022"
+    },
+    {
+      "notePath": "daily/2022-02-09.md",
+      "date": "Wed Feb 09 2022"
+    },
+    {
+      "notePath": "daily/2022-02-10.md",
+      "date": "Thu Feb 10 2022"
+    },
+    {
+      "notePath": "daily/2022-02-16.md",
+      "date": "Thu Feb 24 2022"
+    },
+    {
+      "notePath": "daily/2022-02-25.md",
+      "date": "Fri Feb 25 2022"
+    },
+    {
+      "notePath": "daily-notes/2022-04-13.md",
+      "date": "Wed Apr 13 2022"
+    }
+  ],
+  "completePastItems": false,
+  "circularProgress": true,
+  "nowAndNextInStatusBar": true,
+  "showTaskNotification": true,
+  "timelineZoomLevel": 2
+}

@@ -1,0 +1,42 @@
+{
+  "ProgressProperties": {
+    "enabled": false,
+    "properties": []
+  },
+  "IgnoredProperties": {
+    "enabled": false,
+    "properties": []
+  },
+  "AutoProperties": {
+    "enabled": true,
+    "properties": [
+      {
+        "name": "url",
+        "choices": []
+      },
+      {
+        "name": "created",
+        "choices": []
+      },
+      {
+        "name": "modified",
+        "choices": []
+      },
+      {
+        "name": "tags",
+        "choices": []
+      }
+    ]
+  },
+  "EditMode": {
+    "mode": "All Single",
+    "properties": []
+  },
+  "KanbanHelper": {
+    "enabled": false,
+    "boards": []
+  },
+  "UIElements": {
+    "enabled": true
+  }
+}
