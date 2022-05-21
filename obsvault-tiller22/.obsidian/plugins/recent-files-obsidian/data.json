@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "index",
+      "path": "learning-excel/list-sheets-in-cell/index.md"
+    },
+    {
+      "basename": "CHANGELOG_OBSIDIAN",
+      "path": "CHANGELOG_OBSIDIAN.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "learning-excel/Untitled.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "scratchpad",
+      "path": "scratchpad.md"
+    },
+    {
       "basename": "Timeline1.2 - Expanded",
       "path": "timelines/timeline1/Timeline1.2 - Expanded.md"
     },
@@ -63,10 +83,6 @@
     {
       "basename": "2022-05-20",
       "path": "blog/2022-05-20.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "BRANDING_GUIDELINES",
@@ -183,22 +199,6 @@
     {
       "basename": "README",
       "path": "tools/README.md"
-    },
-    {
-      "basename": "2022-05-16 What I Would Do with 100 People at Memory AS",
-      "path": "_attachments/2022-05-16 What I Would Do with 100 People at Memory AS.md"
-    },
-    {
-      "basename": "Obsidian",
-      "path": "tools/obsidian/Obsidian.md"
-    },
-    {
-      "basename": "Strategies, Processes, Systems, etc.",
-      "path": "organizations/memory-timely/What I Would Do With 100 People/includes/Strategies, Processes, Systems, etc..md"
-    },
-    {
-      "basename": "Timely",
-      "path": "tools/Timely.md"
     }
   ],
   "omittedPaths": [],

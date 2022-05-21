@@ -1,10 +1,9 @@
 {
-  "baseFontSize": 4,
+  "baseFontSize": 16,
   "theme": "moonstone",
-  "cssTheme": "Obsidian Nord",
+  "cssTheme": "Deep Work",
   "translucency": false,
   "enabledCssSnippets": [
-    "gsteve3-custom-neon80s",
-    "timeline-style-gsteve3"
+    "gsteve3-tiller2022"
   ]
 }

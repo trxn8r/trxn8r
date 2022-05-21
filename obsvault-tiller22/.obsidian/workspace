@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "0bb89b071e43040c",
+        "id": "e76a9f4074073ab4",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "learning-excel/list-sheets-in-cell/index.md",
+            "mode": "source",
+            "source": true
+          }
         }
       }
     ],
@@ -83,6 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "learning-excel/list-sheets-in-cell/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -107,6 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "learning-excel/list-sheets-in-cell/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +134,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "learning-excel/list-sheets-in-cell/index.md"
+              }
             }
           },
           {
@@ -171,17 +179,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "0bb89b071e43040c",
+  "active": "e76a9f4074073ab4",
   "lastOpenFiles": [
+    "learning-excel/list-sheets-in-cell/index.md",
+    "CHANGELOG_OBSIDIAN.md",
+    "learning-excel/Untitled.md",
+    "README.md",
+    "scratchpad.md",
     "timelines/timeline1/Timeline1.2 - Expanded.md",
     "tools/obsidian/Use callouts - Obsidian Help.md",
     "timelines/timeline1/Timeline1.md",
     "resume/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.5.3.pdf",
-    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v1.pdf",
-    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.2.pdf",
-    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.1.pdf",
-    "resume/README.md",
-    "resume/2022-05-11 Paper Resume Scratchpad.md",
-    "organizations/tiller/README.md"
+    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v1.pdf"
   ]
 }

@@ -1,0 +1,15 @@
+/***
+ *  2022-05-21 Image Inline? Disabling for tiller-challenge-2022
+ * Overriding:
+ *
+ *   img {
+ *       /* display: block !important; */
+ *       /* margin-left: auto !important; */
+ *       /* margin-right: auto !important; */
+ *   }
+ *
+ */
+img {
+    display: inline;
+}
+
