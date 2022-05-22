@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "SOURCES",
+      "path": "docs/SOURCES.md"
+    },
+    {
+      "basename": "Untitled Kanban",
+      "path": "todo/Untitled Kanban.md"
+    },
+    {
+      "basename": "Cleanup Duplicate TRXNs",
+      "path": "Cleanup Duplicate TRXNs.md"
+    },
+    {
       "basename": "index",
       "path": "learning-excel/list-sheets-in-cell/index.md"
     },
@@ -11,10 +27,6 @@
     {
       "basename": "Untitled",
       "path": "learning-excel/Untitled.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "scratchpad",
@@ -187,18 +199,6 @@
     {
       "basename": "LinkedIn Profiles",
       "path": "organizations/memory-timely/What I Would Do With 100 People/includes/LinkedIn Profiles.md"
-    },
-    {
-      "basename": "Tools",
-      "path": "organizations/memory-timely/What I Would Do With 100 People/includes/Tools.md"
-    },
-    {
-      "basename": "Pasted Image 20220516170903_118",
-      "path": "organizations/memory-timely/What I Would Do With 100 People/_assets/iframes/Pasted Image 20220516170903_118.png"
-    },
-    {
-      "basename": "README",
-      "path": "tools/README.md"
     }
   ],
   "omittedPaths": [],

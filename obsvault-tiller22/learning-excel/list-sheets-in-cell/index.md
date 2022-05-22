@@ -27,6 +27,31 @@ SheetNameCells
 
 
 
+TransactionsHeadersList
+
+Table Tools > Table Name field
+
+
+Formulas -> Name Manager
+
+
+
+
+
+
+
+
+
+## 2022-05-21 at 19:18:25
+
+https://www.google.com/search?q=excel%20null%20coallesce
+
+
+
+What are we actually "running" to do the Import with Power Query?
+
+Is it just mapping columns and data together into a final "Query" that we can populate a Sheet from?
+Live updated with no `Import Now`?
 
 
 

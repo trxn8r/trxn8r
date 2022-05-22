@@ -4,16 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "e76a9f4074073ab4",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "learning-excel/list-sheets-in-cell/index.md",
-            "mode": "source",
-            "source": true
+        "id": "3854f6140adaeba9",
+        "type": "split",
+        "children": [
+          {
+            "id": "4908fd82d88de299",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "e76a9f4074073ab4",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/SOURCES.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
           }
-        }
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -70,8 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 839,
-    "collapsed": true
+    "width": 839
   },
   "right": {
     "id": "a0c6f58548806641",
@@ -87,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "learning-excel/list-sheets-in-cell/index.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "learning-excel/list-sheets-in-cell/index.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +155,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "learning-excel/list-sheets-in-cell/index.md"
+                "file": "README.md"
               }
             }
           },
@@ -179,17 +199,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "e76a9f4074073ab4",
+  "active": "4908fd82d88de299",
   "lastOpenFiles": [
+    "README.md",
+    "docs/SOURCES.md",
+    "todo/Untitled Kanban.md",
+    "Cleanup Duplicate TRXNs.md",
     "learning-excel/list-sheets-in-cell/index.md",
     "CHANGELOG_OBSIDIAN.md",
     "learning-excel/Untitled.md",
-    "README.md",
     "scratchpad.md",
     "timelines/timeline1/Timeline1.2 - Expanded.md",
-    "tools/obsidian/Use callouts - Obsidian Help.md",
-    "timelines/timeline1/Timeline1.md",
-    "resume/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.5.3.pdf",
-    "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v1.pdf"
+    "tools/obsidian/Use callouts - Obsidian Help.md"
   ]
 }
