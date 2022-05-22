@@ -4,7 +4,7 @@
   "trashOption": "local",
   "newFileLocation": "folder",
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "./_assets/SOURCES",
+  "attachmentFolderPath": "./_assets/README",
   "pdfExportSettings": {
     "pageSize": "Letter",
     "landscape": false,
