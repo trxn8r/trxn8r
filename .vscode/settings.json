@@ -2,6 +2,18 @@
     "conventionalCommits.scopes": [
         "git",
         "excel",
-        "obsidian"
+        "obsidian",
+        "vscode"
+    ],
+    "files.eol": "\n",
+    "files.insertFinalNewline": false,
+    "open.fileMappings": [
+        {
+            "_comment": "Use `CTRL+ALT+O, O` to open a `.md` File within the vault folder in Obsidian!",
+            "pattern": "(?<group_1>obsvault-tiller22\\\\)(?<group_2>(.+?)*)",
+            "output": "obsidian://open?vault=obsvault-tiller22&file=${match:group_2}",
+            "lineSeparator": "#",
+            "linePrefix": "L"
+        }
     ]
 }
