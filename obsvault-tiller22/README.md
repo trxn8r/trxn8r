@@ -19,3 +19,18 @@ project_author: [@gsteve3](https://github.com/gsteve3)
 - Target audience of users or people working with this will benefit from overly verbose names.
 - Even gross things like appending data types (e.g. `TransactionsQuery`) to avoid confusion with the `Transactions` Worksheet.
 
+
+---
+
+## Watch Me Go Insane, as an `Excalidraw` Diagram...
+
+
+[2022-05-24 Importer Workflow Diagram](2022-05-24%20Importer%20Workflow%20Diagram.md)
+![2022-05-24 Importer Workflow Diagram.png](2022-05-24%20Importer%20Workflow%20Diagram.png)
+
+[2022-05-24 Diagram of What Importer Should Do](2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.md)
+![2022-05-24 Diagram of What Importer Should Do.png](2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.png)
+
+
+[Overview1 After PowerQuery Model 2022-05-22.excalidraw](Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw)
+![Overview1 After PowerQuery Model 2022-05-22.excalidraw.thumb.png](Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.thumb.png)

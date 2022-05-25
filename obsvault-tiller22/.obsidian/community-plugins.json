@@ -35,7 +35,6 @@
   "obsidian-wrap-with-shortcuts",
   "mrj-jump-to-link",
   "obsidian-mind-map",
-  "maximise-active-pane-obsidian",
   "obsidian-tabs",
   "obsidian-kanban",
   "obsidian-plugin-toc",
@@ -50,5 +49,9 @@
   "tabout",
   "tag-word-cloud",
   "obsidian-git",
-  "nldates-obsidian"
+  "nldates-obsidian",
+  "obsidian-local-rest-api",
+  "periodic-notes",
+  "obsidian-link-converter",
+  "wikilinks-to-mdlinks-obsidian"
 ]

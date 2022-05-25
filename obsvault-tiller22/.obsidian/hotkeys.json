@@ -37,21 +37,7 @@
     }
   ],
   "open-vscode:open-vscode": [],
-  "daily-notes": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "E"
-    },
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "Q"
-    }
-  ],
+  "daily-notes": [],
   "editor:toggle-blockquote": [
     {
       "modifiers": [
@@ -196,7 +182,7 @@
     {
       "modifiers": [
         "Alt",
-        "Mod"
+        "Shift"
       ],
       "key": "C"
     }
@@ -324,6 +310,12 @@
         "Shift"
       ],
       "key": "K"
+    },
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "K"
     }
   ],
   "obsidian-kanban:toggle-kanban-view": [
@@ -360,14 +352,7 @@
       "key": "`"
     }
   ],
-  "obsidian-day-planner:app:show-day-planner-today-note": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "Q"
-    }
-  ],
+  "obsidian-day-planner:app:show-day-planner-today-note": [],
   "editor:toggle-bullet-list": [
     {
       "modifiers": [
@@ -620,6 +605,42 @@
         "Alt"
       ],
       "key": "F11"
+    }
+  ],
+  "obsidian-excalidraw-plugin:insert-md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "K"
+    }
+  ],
+  "editor:insert-tag": [],
+  "editor:insert-link": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "K"
+    }
+  ],
+  "periodic-notes:open-daily-note": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Q"
+    }
+  ],
+  "open-with-default-app:open": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
     }
   ]
 }

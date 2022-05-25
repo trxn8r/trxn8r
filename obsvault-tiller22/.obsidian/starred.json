@@ -64,6 +64,11 @@
       "type": "file",
       "title": "SOURCES",
       "path": "docs/SOURCES.md"
+    },
+    {
+      "type": "file",
+      "title": "Roadmap v1 2022-05-22.excalidraw",
+      "path": "diagrams/Roadmap v1 2022-05-22.excalidraw.md"
     }
   ]
 }
