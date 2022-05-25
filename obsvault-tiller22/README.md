@@ -28,9 +28,8 @@ project_author: [@gsteve3](https://github.com/gsteve3)
 [2022-05-24 Importer Workflow Diagram](2022-05-24%20Importer%20Workflow%20Diagram.md)
 ![2022-05-24 Importer Workflow Diagram.png](2022-05-24%20Importer%20Workflow%20Diagram.png)
 
-[2022-05-24 Diagram of What Importer Should Do](2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.md)
-![2022-05-24 Diagram of What Importer Should Do.png](2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.png)
+[2022-05-24 Diagram of What Importer Should Do](diagrams/2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.md)
+![2022-05-24 Diagram of What Importer Should Do](diagrams/2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.png)
 
-
-[Overview1 After PowerQuery Model 2022-05-22.excalidraw](Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw)
-![Overview1 After PowerQuery Model 2022-05-22.excalidraw.thumb.png](Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.thumb.png)
+[Overview1 After PowerQuery Model 2022-05-22.excalidraw](diagrams/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw)
+![Overview1 After PowerQuery Model 2022-05-22.excalidraw.thumb.png](diagrams/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.thumb.png)
