@@ -9,3 +9,6 @@ obsvault/.obsidian/plugins/recent-files-obsidian/data.json
 
 # Excel Temp Files
 ~\$*.xlsx
+
+# Data (git add what you may want as part of repo)
+importer-data/*
