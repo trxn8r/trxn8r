@@ -4,7 +4,7 @@
   "trashOption": "local",
   "newFileLocation": "folder",
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "./_assets/README",
+  "attachmentFolderPath": "./_assets/CHANGELOG_OBSIDIAN",
   "pdfExportSettings": {
     "pageSize": "Letter",
     "landscape": false,
@@ -29,7 +29,7 @@
   "communityThemeSortOrder": "download",
   "autoPairBrackets": true,
   "lineWrap": false,
-  "useMarkdownLinks": false,
-  "newLinkFormat": "shortest",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute",
   "newFileFolderPath": "_attachments"
 }

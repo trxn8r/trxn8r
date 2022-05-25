@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "README.md",
+            "file": "CHANGELOG_OBSIDIAN.md",
             "mode": "source",
             "source": true
           }
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "CHANGELOG_OBSIDIAN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "CHANGELOG_OBSIDIAN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "CHANGELOG_OBSIDIAN.md"
               }
             }
           },
@@ -188,6 +188,8 @@
   },
   "active": "e75384b06dcfd6bc",
   "lastOpenFiles": [
+    "CHANGELOG_OBSIDIAN.md",
+    "2022-05-22 Why Power Query.md",
     "README.md",
     "diagrams/2022-05-24 Importer Workflow Diagram.md",
     "diagrams/2022-05-24 Diagram of What Importer Should Do.md",
@@ -195,8 +197,6 @@
     "blog/2022-05-24.md",
     "blog/2022-05-25.md",
     "2022-05-24 Power Query Cleaned Up Config Query - ImportSourceNormalized.md",
-    "diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.md",
-    "diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.png",
-    "diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.thumb.png"
+    "diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.md"
   ]
 }

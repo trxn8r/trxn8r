@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "CHANGELOG_OBSIDIAN",
+      "path": "CHANGELOG_OBSIDIAN.md"
+    },
+    {
+      "basename": "2022-05-22 Why Power Query",
+      "path": "2022-05-22 Why Power Query.md"
+    },
+    {
       "basename": "README",
       "path": "README.md"
     },
@@ -69,10 +77,6 @@
       "path": "blog/2022-05-22.md"
     },
     {
-      "basename": "2022-05-22 Why Power Query",
-      "path": "2022-05-22 Why Power Query.md"
-    },
-    {
       "basename": "CONVENTIONS",
       "path": "docs/CONVENTIONS.md"
     },
@@ -95,10 +99,6 @@
     {
       "basename": "index",
       "path": "learning-excel/list-sheets-in-cell/index.md"
-    },
-    {
-      "basename": "CHANGELOG_OBSIDIAN",
-      "path": "CHANGELOG_OBSIDIAN.md"
     },
     {
       "basename": "Untitled",
