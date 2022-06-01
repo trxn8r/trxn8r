@@ -2,7 +2,7 @@
 
 ## Tiller's 2022 Microsoft Excel Builders Challenge Entry
 
-_by [Greg Stevens](https://www.stevens.pro/career) a.k.a. [@GregSweats](https://github.com/GregSweats)_
+_by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github.com/GregSweats)_
 
 ---
 
