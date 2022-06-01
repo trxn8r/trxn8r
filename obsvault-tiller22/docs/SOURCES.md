@@ -15,9 +15,9 @@ https://www.mrexcel.com/board/threads/powerquery-how-to-add-combine-sourcename.9
 
 
 > _I use Autocorrect to store this piece of Power Query Formula (including the comma at the end) as pqname_
-> 
+>
 > _ParameterName = Excel.CurrentWorkbook(){[Name=”NamedRange”]}[Content]{0}[Column1],_
-> 
+>
 > _Then whenever I type pqname into Excel this formula appears which I copy and paste into my Query._
 >
 > -- https://accessanalytic.com.au/powerquery_namedcells_parameters/#post-5946
@@ -71,5 +71,7 @@ https://socialify.git.ci/gsteve3/tiller-challenge-2022?description=1&issues=1&lo
 
 
 https://socialify.git.ci/Savvy-Student-Stats/powerbi-moodle-data-source?description=1&issues=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F7085720%3Fv%3D4&name=1&owner=1&pattern=Brick%20Wall&pulls=1&stargazers=1&theme=Dark
+
+
 
 
