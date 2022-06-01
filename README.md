@@ -20,10 +20,10 @@
     - [Git Clone the Repo](#git-clone-the-repo)
       - [Example](#example)
     - [Caveats](#caveats)
-      - [Avoid Usually Cloning into a OneDrive Folder](#avoid-usually-cloning-into-a-onedrive-folder)
+      - [Usually Avoid Cloning into a OneDrive Folder](#usually-avoid-cloning-into-a-onedrive-folder)
 - [Contributing](#contributing)
 - [Goals / Thoughts](#goals--thoughts)
-  - ["Making Of" YouTube Playlist (Hours...⏳)](#making-of-youtube-playlist-hours)
+  - [📽 "Making Of" YouTube Playlist (10+ Hours)](#-making-of-youtube-playlist-10-hours)
 - [Diagram Samples (`/diagrams/`)](#diagram-samples-diagrams)
 
 ---
@@ -96,7 +96,7 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
 >
 > _-- [Oxford Learner's Dictionaries, 2022-06-01](https://www.oxfordlearnersdictionaries.com/definition/english/caveat)_
 
-##### Avoid Usually Cloning into a OneDrive Folder
+##### Usually Avoid Cloning into a OneDrive Folder
 - Cloning into a [[OneDrive]] folder is something that I have had HUGE issues with before due to constant Network Activity, most noticeable whne listing directories and/or svaing files.
   - Set the parent folder to `Always available on this device`.
   - This small repo wasn't like the multi-GB one I had the problems with before.
@@ -118,18 +118,18 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
 
 ## Goals / Thoughts
 
-- Windows Friendly Naming
+- **MS Office / Windows Based Friendly Naming**
   - e.g. `Create a new ` __`folder`__ rather than `directory` (Linux/Web terminology I think 🤔❓)
   - Models after `Windows Explorer's` __"New folder"__ button.
     - #todo: Any reference for this?
-- Leverage `Microsoft Office 365 (0365)` Services
+- **Leverage `Microsoft Office 365 (0365)` Services**
     - Cloud, local, apps, whatever.
     - Workflows, commenting, approving, todos.
     - Outlook/Email Integration (forward receipts, etc...) #dreaming #future
     - [OneDrive Vaults](https://www.microsoft.com/en-ca/microsoft-365/onedrive/personal-vault?utm_campaign=TRXN8R&utm_source=github.com/trxn8r/trxn8r/blob/main/README.md&utm_medium=GitHub)
     - etc.
-- Be __User Friendly__
-  - `TRX8NR` was created for [Tiller’s 2022 Microsoft Excel Builders Challenge](https://www.tillerhq.com/announcing-tillers-2022-microsoft-excel-builders-challenge/?utm_campaign=TRXN8R&utm_source=github.com/trxn8r/trxn8r/blob/main/README.md&utm_medium=GitHub) 🔗
+- **Be __User Friendly__**
+  - `TRX8NR` was created for [Tiller’s 2022 Microsoft Excel Builders Challenge](https://www.tillerhq.com/announcing-tillers-2022-microsoft-excel-builders-challenge/?utm_campaign=TRXN8R&utm_source=github.com/trxn8r/trxn8r/blob/main/README.md&utm_medium=GitHub)
   - After a review of roughly 10 financial products, Tiller was the best. At the _very least_ the data was __mine__!
   - I have done some wonky things with spreadsheets in the past,
     such as using multiple `CONCAT(...` to write hundreds of Apache Redirects, routinely, without any effort, and only having [the team](https://www.mediadog.ca/?utm_campaign=TRXN8R&utm_source=github.com/trxn8r/trxn8r/blob/main/README.md&utm_medium=GitHub) fill out the old/new columns. Plus an entire [Forage U-pick Tool](https://upick.beefresearch.ca/?utm_campaign=TRXN8R&utm_source=github.com/trxn8r/trxn8r/blob/main/README.md&utm_medium=GitHub) with _real scientific data created as a 10-year follow-up to a project with 10-15 years of previous data in it!
@@ -146,18 +146,12 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
   - Through the use of **10-20+ Hours of Screencasts** that will soon be available on [YouTube @GregWorks 4 Hour 20 Minute Non-Stop Initial, RAW, Uncut, Initial Screencast Experiment and Garage Building Finishing w/ Woodworking and Examples of Non-Verbal Communication Skills](https://www.youtube.com/watch?v=YHlK748eKaQ&t=7600s) 📽.
 
 
-### "Making Of" YouTube Playlist (Hours...⏳)
+### 📽 "Making Of" YouTube Playlist (10+ Hours)
 
 > 🔗
 >
 > [TRX8NR "Making Of" Screencasts - Tiller Finance 2022 Excel Builders Challenge](https://www.youtube.com/playlist?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC)
 >
-
-
-
-[![](http://i3.ytimg.com/vi/YHlK748eKaQ/hqdefault.jpg)](https://www.youtube.com/playlist?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC)
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ---
