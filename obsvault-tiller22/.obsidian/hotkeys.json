@@ -642,5 +642,13 @@
       ],
       "key": "O"
     }
+  ],
+  "slides:start": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "P"
+    }
   ]
 }

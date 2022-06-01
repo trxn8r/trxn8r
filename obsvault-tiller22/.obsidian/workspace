@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "e75384b06dcfd6bc",
+        "id": "7d33e50a43b4df73",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "CHANGELOG_OBSIDIAN.md",
+            "file": "blog/2022-06-01.md",
             "mode": "source",
             "source": true
           }
@@ -25,7 +25,7 @@
       {
         "id": "34b3473daaba08a9",
         "type": "tabs",
-        "dimension": 29.830148619957537,
+        "dimension": 22.880583409298087,
         "children": [
           {
             "id": "eca097d4e3c04995",
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#CausedBy",
+                "query": "tag:#changelog",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -64,7 +64,7 @@
       {
         "id": "0fc4333bf2d37630",
         "type": "tabs",
-        "dimension": 70.16985138004246,
+        "dimension": 77.11941659070192,
         "children": [
           {
             "id": "8094dc0ddc76d51d",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 542.0007801055908
+    "width": 699
   },
   "right": {
     "id": "a0c6f58548806641",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CHANGELOG_OBSIDIAN.md",
+                "file": "blog/2022-06-01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CHANGELOG_OBSIDIAN.md",
+                "file": "blog/2022-06-01.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CHANGELOG_OBSIDIAN.md"
+                "file": "blog/2022-06-01.md"
               }
             }
           },
@@ -174,6 +174,22 @@
             "id": "12bf5d6433ef845e",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "3df75d749c9d21d7",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "1f43afe160b65e17",
+            "type": "leaf",
+            "state": {
               "type": "Saved Queries View",
               "state": {}
             }
@@ -186,17 +202,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "e75384b06dcfd6bc",
+  "active": "7d33e50a43b4df73",
   "lastOpenFiles": [
-    "CHANGELOG_OBSIDIAN.md",
-    "2022-05-22 Why Power Query.md",
-    "README.md",
-    "diagrams/2022-05-24 Importer Workflow Diagram.md",
-    "diagrams/2022-05-24 Diagram of What Importer Should Do.md",
-    "2022-05-24 Importer Workflow Diagram.png",
-    "blog/2022-05-24.md",
-    "blog/2022-05-25.md",
-    "2022-05-24 Power Query Cleaned Up Config Query - ImportSourceNormalized.md",
-    "diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.md"
+    "blog/2022-06-01.md",
+    "2022-06-01 Remove Private CSV Files for First Release.md",
+    "blog/2022-05-31.md",
+    "2022-05-30 Trippy Dinosaur GIF Sources.md",
+    "blog/2022-05-30.md",
+    "templater/DailyNoteTemplate.md",
+    "diagrams/_assets/Announcing Tiller's 2022 Microsoft Excel Builders Challenge - News   Announcements - Tiller Community.png",
+    "Untitled 1.md",
+    "blog/2022-05-29.md",
+    "Tiller Meet Trx8r - Part 1 - Slides.md"
   ]
 }
