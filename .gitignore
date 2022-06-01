@@ -11,4 +11,6 @@ obsvault/.obsidian/plugins/recent-files-obsidian/data.json
 ~\$*.xlsx
 
 # Data (git add what you may want as part of repo)
-importer-data/*
+data/*
+!data/samples/*
+*.csv
