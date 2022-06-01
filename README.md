@@ -8,6 +8,10 @@
 
 ---
 
+[![TRX8NR Screenshot](obsvault-tiller22/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](obsvault-tiller22/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
+
+---
+
 **Contents**
 - [Obsidian Vault](#obsidian-vault)
     - [Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo](#example-2022-06-01---open-folder-as-vault-freshly-cloned-repo)
