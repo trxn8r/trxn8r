@@ -1,7 +1,10 @@
-# README - Tiller Challenge 2022
+# README TRX8NR / Tiller's 2022 Microsoft Excel Builders Challenge Entry by Greg Stevens.
+
+---
 
 > #SpreadsheetNerdsUnite
-> _-- https://www.tillerhq.com_
+>
+> _[https://www.tillerhq.com/announcing-tillers-2022...](https://www.tillerhq.com/announcing-tillers-2022-microsoft-excel-builders-challenge/)_
 
 ---
 
@@ -13,8 +16,10 @@
       - [Example](#example)
     - [Caveats](#caveats)
       - [Avoid Usually Cloning into a OneDrive Folder](#avoid-usually-cloning-into-a-onedrive-folder)
+- [Contributing](#contributing)
 - [Goals / Thoughts](#goals--thoughts)
   - ["Making Of" YouTube Playlist (Hours...⏳)](#making-of-youtube-playlist-hours)
+- [#LinkDump 01/06/2022, 11:00:40](#linkdump-01062022-110040)
 - [Diagram Samples (`/diagrams/`)](#diagram-samples-diagrams)
 
 ---
@@ -94,6 +99,17 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
       - [ ] Is a [[OneDrive#Vault|OneDrive Vault]] more secure than [[Google Sheets]] in this case?! #CompetitiveResearch #Versus
 - To avoid further loss, I now keep it backed up on OneDrive, where most my data lives 😇.
 
+
+---
+
+## Contributing
+
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Conventional Commits - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
+- [Calendar Versioning — CalVer](https://calver.org/)
+
+---
+
 ## Goals / Thoughts
 
 - Windows Friendly Naming
@@ -125,7 +141,26 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
     -
 
 ### "Making Of" YouTube Playlist (Hours...⏳)
+
+[[YouTube Pl
+
 https://www.youtube.com/playlist?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC
+
+## #LinkDump 01/06/2022, 11:00:40
+
+- [trxn8r/trxn8r: Transactionator - The Trippy T-Rex Transaction Import/Exporter; My entry for Tiller’s 2022 MS Excel Challenge; Hopefully better than resume for Tiller Sr. Engineering Job 😱](https://github.com/trxn8r/trxn8r)
+- [TRX8NR "Making Of" Screencasts - Tiller Finance 2022 Excel Builders Challenge - YouTube](https://www.youtube.com/playlist?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC)
+- [Tiller Challenge 2022 episode1 - Day 1.2 - 4 Hour 20 Minute Non-stop - YouTube](https://www.youtube.com/watch?v=YHlK748eKaQ&list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC&index=2&t=7600s)
+
+
+
+
+
+
+
+
+
+[![](http://i3.ytimg.com/vi/YHlK748eKaQ/hqdefault.jpg)](https://www.youtube.com/playlist?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC)
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
