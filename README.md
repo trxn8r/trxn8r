@@ -80,29 +80,36 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
   - [1.1. Download the `TRX8NR 🐱‍🐉` Excel Workbook](#11-download-the-trx8nr--excel-workbook)
   - [1.2. Configure TRX8NR to ~~Load~~ Chew On & Digest Your Transactions](#12-configure-trx8nr-to-load-chew-on--digest-your-transactions)
 - [2️⃣ All the Contents](#2️⃣-all-the-contents)
-- [3️⃣ Obsidian Vault](#3️⃣-obsidian-vault)
+- [3️⃣ Issues, Help, Discussions, etc.](#3️⃣-issues-help-discussions-etc)
+- [4️⃣ Obsidian Vault](#4️⃣-obsidian-vault)
     - [Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo](#example-2022-06-01---open-folder-as-vault-freshly-cloned-repo)
+- [Contributing](#contributing)
 - [Getting Started as a `Developer`](#getting-started-as-a-developer)
   - [Download ZIP, Excel, or Git Clone the Repo](#download-zip-excel-or-git-clone-the-repo)
     - [Git Clone the Repo](#git-clone-the-repo)
       - [Example](#example)
     - [Caveats](#caveats)
       - [Usually Avoid Cloning into a OneDrive Folder](#usually-avoid-cloning-into-a-onedrive-folder)
-- [Contributing](#contributing)
 - [Goals / Thoughts](#goals--thoughts)
-  - [📽 "Making Of" YouTube Playlist (10+ Hours)](#-making-of-youtube-playlist-10-hours)
 - [Diagram Samples (`/diagrams/`)](#diagram-samples-diagrams)
 
 ---
 
-## 3️⃣ Obsidian Vault
+## 3️⃣ Issues, Help, Discussions, etc.
 
-- Please Also See the [Obsidian Vault `.(obsvault-tiller22/`](obsvault-tiller22/).
+- [Issues · trxn8r/trxn8r](https://github.com/trxn8r/trxn8r/issues)
+- [Projects · trxn8r](https://github.com/trxn8r/trxn8r/projects?type=beta)
+
+
+
+## 4️⃣ Obsidian Vault
+
+[`./obsvault-tiller22/`](obsvault-tiller22/)
+
+
+- Glance at the [Obsidian Vault `./obsvault-tiller22/`](obsvault-tiller22/)
 - That `"Vault"` is where [Obsidian.md](https://obsidian.md/) magic comes into play.
-- Install/Open `Obsidian` _(for free)_ and then `"Open folder as vault"` and open the vault folder [`./obsvault-tiller22./`](obsvault-tiller22/).
-- I am _**the**_ README is for the [GitHub Repo `trxn8r/trxn8r`](https://github.com/trxn8r/trxn8r).
-- This contains information for [Contributing](#Contributing), [
-  Also see [`obsvault-tiller22/README.md`](obsvault-tiller22/README.md)
+- Install/Open [`Obsidian` _(for free)_](https://obsidian.md/) and then `"Open folder as vault"` and open the vault folder [`./obsvault-tiller22./`](obsvault-tiller22/).
 
 
 #### Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo
@@ -111,6 +118,8 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 
 
 ---
+
+
 
 _Nicer keeping all documentation within wonderful [Obsidian](https://obsidian.md) 👩‍🏭._
 
@@ -123,6 +132,11 @@ Greg Stevens
 
 
 ---
+
+## Contributing
+
+> 🔗 See [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
 
 ## Getting Started as a `Developer`
 ### Download ZIP, Excel, or Git Clone the Repo
@@ -178,9 +192,6 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
 
 
 
-## Contributing
-
-> 🔗 See [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 
 ## Goals / Thoughts
@@ -211,14 +222,6 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
 - Help @GregSweats get a job with [Tiller](https://www.tillerhq.com)
 - Help @GregSweats figure out if he is insane, or actually on to something with his various workflows.
   - Through the use of **10-20+ Hours of Screencasts** that will soon be available on [YouTube @GregWorks 4 Hour 20 Minute Non-Stop Initial, RAW, Uncut, Initial Screencast Experiment and Garage Building Finishing w/ Woodworking and Examples of Non-Verbal Communication Skills](https://www.youtube.com/watch?v=YHlK748eKaQ&t=7600s) 📽.
-
-
-### 📽 "Making Of" YouTube Playlist (10+ Hours)
-
-> 🔗
->
-> [TRX8NR "Making Of" Screencasts - Tiller Finance 2022 Excel Builders Challenge](https://www.youtube.com/playlist?list=PLqKgLp9aiBB_p4vwWgQRC-qefa2es9ziC)
->
 
 
 ---
