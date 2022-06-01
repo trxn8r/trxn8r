@@ -3,7 +3,8 @@
         "git",
         "excel",
         "obsidian",
-        "vscode"
+        "vscode",
+        "data"
     ],
     "files.eol": "\n",
     "files.insertFinalNewline": false,
