@@ -1,21 +1,88 @@
-# README TRX8NR / Tiller's 2022 Microsoft Excel Builders Challenge Entry by Greg Stevens.
+# README TRX8NR
+
+## Tiller's 2022 Microsoft Excel Builders Challenge Entry
+
+_by [Greg Stevens](https://www.stevens.pro/career) a.k.a. [@GregSweats](https://github.com/GregSweats)_
 
 ---
 
 > #SpreadsheetNerdsUnite
 >
-> _[https://www.tillerhq.com/announcing-tillers-2022...](https://www.tillerhq.com/announcing-tillers-2022-microsoft-excel-builders-challenge/)_
+> _[Announcing Tiller’s 2022 Microsoft Excel Builders Challenge](https://www.tillerhq.com/announcing-tillers-2022-microsoft-excel-builders-challenge/)_
 
 ---
+
+
+## 1️⃣ Getting Started as a `User`
+
+_⚠ The first hit is always free._
+
+### 1.1. Download the `TRX8NR 🐱‍🐉` Excel Workbook
+
+<p class="callout info">
+
+1. 🔗 [Download the TRXN8R Excel Workbook `.xlsx`](./TRXN8R%20-%20Bulk%20Import%20CSV%20Transactions%20v22.6.1-alpha.2.xlsx)
+
+</p>
+
+### 1.2. Configure TRX8NR to ~~Load~~ Chew On & Digest Your Transactions
+From the main screen, the workbook in the screenshot, `TRX8NR Home`
+
+1. **`Foundation/Transactions Workbook File Path`**
+   1. The location of your [Tiller Foundation Template](https://www.tillerhq.com/introducing-the-tiller-foundation-template-for-microsoft-excel/)
+   with a `Transactions Worksheet`.
+
+   2. The `Transactions` from this worksheet will be used to determine:
+      1. `Column Headers` for mapping the `CSV Files` to.
+      2. `Transaction History` to **avoid importing `Transactions` that already exist**.
+      4. ⚠ **`TRX8NR` ~~WILL~~ SHOULD NOT MODIFY YOUR DATA!**
+         1. Still in beta as of 2022-06-01 so mistakes may happen.
+      3. After the import, `TRXN8R` loads the `` Worksheet with **new, de-duplicated Transactions, in the same column format for easy copy/paste back into your actual data**.
+      4. Review the Imported Transactions, add them back to your `Foundation/Transactions Workbook`, and voile, we should succeed! 🏆
+
+   3.  consumed from [`data/to-import/`](data/to-import/) will be compared to the **`Transactions Worksheet`** in this `Foundation Template`.
+
+2. **`Pick Transactions Worksheet`**
+   1. ✅ **Any Custom Headers/Ordering Works**
+      2. 🤯 TRX8NR loads the headers from the `Transactions Worksheet` into the next step, the `TRX8NR ImportConfigs Worksheet`, where you can set what `CSV Header` to use for this `Transactions Header` .
+      1. _#beta may be buggy 🐛_
+
+   2. Pick the `Worksheet` to use from the `Foundation Template`.
+      1. _This should be a drop-down list but it may be buggy 🐛_
+
+3. **`Folder Path to Import From`**
+   1. 🔧 The `Windows Directory` where your `CSV Files` are located.
+   2. 🐱‍🐉 TRXN8R will scan all sub-directories too. #feature
+
+4. **`Config to Use`**
+   1. 🚧 #WorkInProgress
+   2. Goal is to have `T8R` let you map different configs to different files, based on patterns, paths, and a final manual `YES/NO` confirmation somehow #maybe.
+   3.
+
+5. **`Refresh Data`**
+
+6. **`Review Results`**
+
+
+
+
 
 [![TRX8NR Screenshot](obsvault-tiller22/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](obsvault-tiller22/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
 
 ---
+---
+---
 
-**Contents**
-- [Obsidian Vault](#obsidian-vault)
+## 2️⃣ All the Contents
+
+- [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
+- [1️⃣ Getting Started as a `User`](#1️⃣-getting-started-as-a-user)
+  - [1.1. Download the `TRX8NR 🐱‍🐉` Excel Workbook](#11-download-the-trx8nr--excel-workbook)
+  - [1.2. Configure TRX8NR to ~~Load~~ Chew On & Digest Your Transactions](#12-configure-trx8nr-to-load-chew-on--digest-your-transactions)
+- [2️⃣ All the Contents](#2️⃣-all-the-contents)
+- [3️⃣ Obsidian Vault](#3️⃣-obsidian-vault)
     - [Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo](#example-2022-06-01---open-folder-as-vault-freshly-cloned-repo)
-- [Getting Started](#getting-started)
+- [Getting Started as a `Developer`](#getting-started-as-a-developer)
   - [Download ZIP, Excel, or Git Clone the Repo](#download-zip-excel-or-git-clone-the-repo)
     - [Git Clone the Repo](#git-clone-the-repo)
       - [Example](#example)
@@ -28,7 +95,7 @@
 
 ---
 
-## Obsidian Vault
+## 3️⃣ Obsidian Vault
 
 - Please Also See the [Obsidian Vault `.(obsvault-tiller22/`](obsvault-tiller22/).
 - That `"Vault"` is where [Obsidian.md](https://obsidian.md/) magic comes into play.
@@ -57,7 +124,7 @@ Greg Stevens
 
 ---
 
-## Getting Started
+## Getting Started as a `Developer`
 ### Download ZIP, Excel, or Git Clone the Repo
 
 #### Git Clone the Repo
