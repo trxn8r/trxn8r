@@ -4,7 +4,8 @@
         "excel",
         "obsidian",
         "vscode",
-        "data"
+        "data",
+        "docs"
     ],
     "files.eol": "\n",
     "files.insertFinalNewline": false,
