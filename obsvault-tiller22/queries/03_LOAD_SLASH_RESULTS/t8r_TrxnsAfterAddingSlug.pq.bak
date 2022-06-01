@@ -1,0 +1,291 @@
+/**
+ * t8r_TrxnsAfterAddingSlug
+ *
+ * Not really params, but the incoming variables.
+ * Whoa....
+ * TODO: Look at adding a function with params that this calls! 2022-05-31
+ *
+ * @param   TransactionsWorksheet type table
+ * @param   ImportSourceNormalized type table
+ *
+ * #DevNote Using @version as an @modified despite it generally
+ *          being a git/build template variable in most examples.
+ *
+ * @since   2022-05-25
+ * @version 2022-05-31
+ * @version =@updated ?
+ * @package trxn8r
+ *
+ */
+
+
+
+/**
+ * t8r_TrxnsAfterAddingSlug
+ *
+ * Not really params, but the incoming variables.
+ * Whoa....
+ * TODO: Look at adding a function with params that this calls! 2022-05-31
+ *
+ * @param TransactionsWorksheet type table
+ * @param ImportSourceNormalized type table
+ *
+ * @since 2022-05-25
+ * @updated 2022-05-31
+ * @version = @updated ?
+ *
+ */
+let
+    Source =
+        Table.Combine(
+            {
+                Table.AddColumn(
+                    TransactionsWorksheet,
+                    "IsFromImport",
+                    each 0,
+                    type binary
+                ),
+                Table.AddColumn(
+                    ImportSourceNormalized,
+                    "IsFromImport",
+                    each 1,
+                    type binary
+                )
+            }
+        ),
+    #"Changed Type: Amount to Currency" =
+        Table.TransformColumnTypes(
+            Source,
+            {
+                {
+                    "Amount",
+                    Currency.Type
+                }
+            }
+        ),
+    #"Generate Slugs for NULLs with createSlug(...)" =
+        Table.ReplaceValue(
+            #"Changed Type: Amount to Currency",
+            "",
+            // DEBUG dummy value instead of createSlug function.
+            // Comment out above and insert string instead.
+            // "t8rDebug_SLUG",
+            "createSlug(
+            [Date],
+            _[Amount],
+            _[Description]
+        )",
+            Replacer.ReplaceValue,
+            {"slug"}
+        ),
+    #"Backup slug as originalSlug for upcoming NULL replacements (#BetterWay ?)" =
+        Table.RenameColumns(
+            #"Generate Slugs for NULLs with createSlug(...)",
+            {
+                {
+                    "slug",
+                    "originalSlug"
+                }
+            }
+        ),
+    // > . **Create means to make something from nothing, or to make something using a lot of creativity**.
+    // >
+    // > -- https://www.google.ca/search?q=generate+vs+create
+
+    // Generate a slug (natural key/id) for any records with null slug now.
+    GenerateSlugIfNull =
+        Table.AddColumn(
+            #"Backup slug as originalSlug for upcoming NULL replacements (#BetterWay ?)",
+            "slug",
+            each
+                if ([originalSlug] = null) then
+                    createTrxn8rSlug(
+                        [Date],
+                        [Amount],
+                        [Description]
+                    )
+                else
+                    [originalSlug]
+        ),
+    #"Removed originalSlug" =
+        Table.RemoveColumns(
+            GenerateSlugIfNull,
+            {"originalSlug"}
+        ),
+    #"Reordered Columns" =
+        Table.ReorderColumns(
+            #"Removed originalSlug",
+
+            // TODO!: Use Header List from TransactionsWorksheet
+            // slug is first for debugging, maybe remove in final result?
+            {
+                "slug",
+                "Date",
+                "Description",
+                "Category",
+                "Amount",
+                "Account",
+                "Account #",
+                "Institution",
+                "Month",
+                "Week",
+                "Check Number",
+                "Full Description",
+                "Transaction ID",
+                "Account ID",
+                "Date Added",
+                "IsFromImport",
+                "Balance"
+            }
+        ),
+    // #"Removed Duplicates" = Table.Distinct(#"Reordered Columns", {"Description", "Date", "Amount"}),
+    #"Removed Duplicates" =
+        Table.Distinct(
+            #"Reordered Columns",
+            {"slug"}
+        ),
+    // todo: Is Table.Group or Table.Distionct better? Which allows all columns to be there, not just ones in the group by?
+    #"Grouped Rows" =
+        Table.Group(
+            Source,
+            {
+                "Date",
+                "Description",
+                "Amount",
+                "slug"
+            },
+            {
+                {
+                    "SimilarCount",
+                    each Table.RowCount(_) - 1,
+                    Int64.Type
+                }
+            }
+        )
+in
+    #"Grouped Rows"
+
+
+return;
+
+
+let
+    Source =
+        Table.Combine(
+            {
+                Table.AddColumn(
+                    TransactionsWorksheet,
+                    "IsFromImport",
+                    each 0,
+                    type binary
+                ),
+                Table.AddColumn(
+                    ImportSourceNormalized,
+                    "IsFromImport",
+                    each 1,
+                    type binary
+                )
+            }
+        ),
+    #"Changed Type" =
+        Table.TransformColumnTypes(
+            Source,
+            {
+                {
+                    "Amount",
+                    Currency.Type
+                }
+            }
+        ),
+    #"Replaced Value" =
+        Table.ReplaceValue(
+            #"Changed Type",
+            "",
+            // DEBUG dummy value instead of createSlug function.
+            // Comment out above and insert string instead.
+            // "t8rDebug_SLUG",
+            "createSlug(
+            [Date],
+            _[Amount],
+            _[Description]
+        )",
+            Replacer.ReplaceValue,
+            {"slug"}
+        ),
+    #"Renamed Columns" =
+        Table.RenameColumns(
+            #"Replaced Value",
+            {
+                {
+                    "slug",
+                    "originalSlug"
+                }
+            }
+        ),
+    // Create a slug (natural key/id) for any records with null slug now.
+    CreateSlugIfNull =
+        Table.AddColumn(
+            #"Renamed Columns",
+            "slug",
+            each
+                if ([originalSlug] = null) then
+                    createTrxn8rSlug(
+                        [Date],
+                        [Amount],
+                        [Description]
+                    )
+                else
+                    [originalSlug]
+        ),
+    #"Removed Columns" =
+        Table.RemoveColumns(
+            CreateSlugIfNull,
+            {"originalSlug"}
+        ),
+    #"Reordered Columns" =
+        Table.ReorderColumns(
+            #"Removed Columns",
+            {
+                "slug",
+                "Date",
+                "Description",
+                "Category",
+                "Amount",
+                "Account",
+                "Account #",
+                "Institution",
+                "Month",
+                "Week",
+                "Check Number",
+                "Full Description",
+                "Transaction ID",
+                "Account ID",
+                "Date Added",
+                "IsFromImport",
+                "Balance"
+            }
+        ),
+    // #"Removed Duplicates" = Table.Distinct(#"Reordered Columns", {"Description", "Date", "Amount"}),
+    #"Removed Duplicates" =
+        Table.Distinct(
+            #"Reordered Columns",
+            {"slug"}
+        ),
+    #"Grouped Rows" =
+        Table.Group(
+            Source,
+            {
+                "Date",
+                "Description",
+                "Amount"
+            },
+            {
+                {
+                    "SimilarCount",
+                    each Table.RowCount(_) - 1,
+                    Int64.Type
+                }
+            }
+        )
+in
+    #"Grouped Rows"
