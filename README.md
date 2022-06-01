@@ -10,6 +10,7 @@
 
 **Contents**
 - [Obsidian Vault](#obsidian-vault)
+    - [Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo](#example-2022-06-01---open-folder-as-vault-freshly-cloned-repo)
 - [Getting Started](#getting-started)
   - [Download ZIP, Excel, or Git Clone the Repo](#download-zip-excel-or-git-clone-the-repo)
     - [Git Clone the Repo](#git-clone-the-repo)
@@ -31,6 +32,12 @@
 - I am _**the**_ README is for the [GitHub Repo `trxn8r/trxn8r`](https://github.com/trxn8r/trxn8r).
 - This contains information for [Contributing](#Contributing), [
   Also see [`obsvault-tiller22/README.md`](obsvault-tiller22/README.md)
+
+
+#### Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo
+![Getting Started with Obsidian](obsvault-tiller22/_assets/screencasts/2022-06-01%20-%20Getting%20Started%20-%20Open%20Obsidian%20Vault%20Demo.gif)
+
+
 
 ---
 
