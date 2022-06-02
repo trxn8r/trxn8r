@@ -29,7 +29,7 @@ _⚠ The first hit is always free._
 
 ### 1.1. Download the Excel Workbook
 
-> ⭐ [Download `TRXN8R.xlsx`](./TRXN8R.xlsx)
+> ⭐ [Download `TRXN8R.xlsx`](https://github.com/trxn8r/trxn8r/raw/main/TRXN8R.xlsx)
 
 
 ### 1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)
@@ -42,8 +42,8 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 
    2. The `Transactions` from this worksheet will be used to determine:
       1. `Column Headers` for mapping the `CSV Files` to.
-      2. `Transaction History` to **avoid importing `Transactions` that already exist**.
-      3. After the import, `TRXN8R` loads the `` Worksheet with **new, de-duplicated Transactions, in the same column format for easy copy/paste back into your actual data**.
+      2. `Transaction History` to **avoid importing duplicate `Transactions`**.
+      3. After the import, `TRXN8R` loads the `t8r_TrxnsFromImport` Worksheet with new, de-duplicated Transactions, **in the same column format for easy copy/paste back into your actual Transactions Worksheet data**.
       4. Review the Imported Transactions, add them back to your `Foundation/Transactions Workbook`, and voile, we should succeed! 🏆
    3. ⚠ `TRX8NR` SHOULD NOT MODIFY/OVERWRITE/DESTROY YOUR DATA!
          1. Still in beta as of 2022-06-01 so mistakes may happen.
