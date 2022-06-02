@@ -15,3 +15,5 @@ obsvault/.obsidian/plugins/recent-files-obsidian/data.json
 data/*
 !data/samples/*
 *.csv
+obs*/.obsidian/plugins/recent-files-obsidian/data.json
+obs*/.obsidian/plugins/youhavebeenstaring-plugin/data.json
