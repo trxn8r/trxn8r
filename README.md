@@ -1,4 +1,4 @@
-# README TRX8NR
+# README TRX8N8R
 
 ## Tiller's 2022 Microsoft Excel Builders Challenge Entry
 
@@ -27,12 +27,13 @@ _by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github
 
 _⚠ The first hit is always free._
 
-### 1.1. Download `TRX8NR 🐱‍🐉` Workbook
+### 1.1. Download the Excel Workbook
 
 > ⭐ [Download `TRXN8R.xlsx`](./TRXN8R.xlsx)
 
 
-### 1.2. Configure `TRX8NR 🐱‍🐉` to ~~Load~~ Chew On & Digest Your Transactions
+### 1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)
+
 From the main screen, the workbook in the screenshot, `TRX8NR Home`
 
 1. **`Foundation/Transactions Workbook File Path`**
@@ -42,17 +43,34 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
    2. The `Transactions` from this worksheet will be used to determine:
       1. `Column Headers` for mapping the `CSV Files` to.
       2. `Transaction History` to **avoid importing `Transactions` that already exist**.
-      4. ⚠ **`TRX8NR` ~~WILL~~ SHOULD NOT MODIFY YOUR DATA!**
-         1. Still in beta as of 2022-06-01 so mistakes may happen.
       3. After the import, `TRXN8R` loads the `` Worksheet with **new, de-duplicated Transactions, in the same column format for easy copy/paste back into your actual data**.
       4. Review the Imported Transactions, add them back to your `Foundation/Transactions Workbook`, and voile, we should succeed! 🏆
+   3. ⚠ `TRX8NR` SHOULD NOT MODIFY/OVERWRITE/DESTROY YOUR DATA!
+         1. Still in beta as of 2022-06-01 so mistakes may happen.
+         2. TRXN8R is designed to Load the Transactions from your Workbook only.
+         3. #todo Is there a way to open the source Workbook read only?
+            1. Might already be.
+            2. Look in Power Query at `t8r_GetWorksheetFromTrxnsWorkbook`. We get the File.Contents and load Workbook from that...how could it write it back?!
 
-   3.  consumed from [`data/to-import/`](data/to-import/) will be compared to the **`Transactions Worksheet`** in this `Foundation Template`.
+            ```pq
+            worksheet = Excel.Workbook(
+              // https://docs.microsoft.com/en-us/powerquery-m/file-contents
+              // File.Contents(path as text, optional options as nullable record) as binary
+              File.Contents(
+                  T8R_TRXNS_WORKBOOK_PATH
+              ),
+              true,
+              true
+            ){[Name=worksheetName]},
+            ```
+               1.
+
+   4.  consumed from [`data/to-import/`](data/to-import/) will be compared to the **`Transactions Worksheet`** in this `Foundation Template`.
 
 2. **`Pick Transactions Worksheet`**
    1. ✅ **Any Custom Headers/Ordering Works**
-      2. 🤯 TRX8NR loads the headers from the `Transactions Worksheet` into the next step, the `TRX8NR ImportConfigs Worksheet`, where you can set what `CSV Header` to use for this `Transactions Header` .
-      1. _#beta may be buggy 🐛_
+      1. 🤯 TRX8NR loads the headers from the `Transactions Worksheet` into the next step, the `TRX8NR ImportConfigs Worksheet`, where you can set what `CSV Header` to use for this `Transactions Header` .
+      2. _#beta may be buggy 🐛_
 
    2. Pick the `Worksheet` to use from the `Foundation Template`.
       1. _This should be a drop-down list but it may be buggy 🐛_
@@ -80,8 +98,8 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 - [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
 - [Screenshot](#screenshot)
 - [1️⃣ Getting Started as a `User`](#1️⃣-getting-started-as-a-user)
-  - [1.1. Download `TRX8NR 🐱‍🐉` Workbook](#11-download-trx8nr--workbook)
-  - [1.2. Configure `TRX8NR 🐱‍🐉` to ~~Load~~ Chew On & Digest Your Transactions](#12-configure-trx8nr--to-load-chew-on--digest-your-transactions)
+  - [1.1. Download the Excel Workbook](#11-download-the-excel-workbook)
+  - [1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)](#12-configure-trx8nr--to-extract-transform-and-load-etl-the-results-of-your-transactions-trxns)
 - [2️⃣ All the Contents](#2️⃣-all-the-contents)
 - [3️⃣ Issues, Help, Discussions, etc.](#3️⃣-issues-help-discussions-etc)
 - [4️⃣ Obsidian Vault](#4️⃣-obsidian-vault)
@@ -203,6 +221,7 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
   - e.g. `Create a new ` __`folder`__ rather than `directory` (Linux/Web terminology I think 🤔❓)
   - Models after `Windows Explorer's` __"New folder"__ button.
     - #todo: Any reference for this?
+  - e.g. `Worksheet` over `Sheet` and `Workbook` over `File` or `Spreadsheet` (#maybe ?).
 - **Leverage `Microsoft Office 365 (0365)` Services**
     - Cloud, local, apps, whatever.
     - Workflows, commenting, approving, todos.
