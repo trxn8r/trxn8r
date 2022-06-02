@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7d33e50a43b4df73",
+        "id": "1fb14d053d7237d9",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "blog/2022-06-01.md",
-            "mode": "source",
-            "source": true
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -78,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 699
+    "width": 519
   },
   "right": {
     "id": "a0c6f58548806641",
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blog/2022-06-01.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +114,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "blog/2022-06-01.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,9 +135,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "blog/2022-06-01.md"
-              }
+              "state": {}
             }
           },
           {
@@ -202,17 +194,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "7d33e50a43b4df73",
+  "active": "1fb14d053d7237d9",
   "lastOpenFiles": [
+    "blog/2022-06-02.md",
+    "templater/DailyNoteTemplate.md",
     "blog/2022-06-01.md",
     "2022-06-01 Remove Private CSV Files for First Release.md",
     "blog/2022-05-31.md",
     "2022-05-30 Trippy Dinosaur GIF Sources.md",
     "blog/2022-05-30.md",
-    "templater/DailyNoteTemplate.md",
     "diagrams/_assets/Announcing Tiller's 2022 Microsoft Excel Builders Challenge - News   Announcements - Tiller Community.png",
     "Untitled 1.md",
-    "blog/2022-05-29.md",
-    "Tiller Meet Trx8r - Part 1 - Slides.md"
+    "blog/2022-05-29.md"
   ]
 }

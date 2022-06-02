@@ -2,15 +2,28 @@
 created:  <% tp.date.now("YYYY-MM-DD") %>
 modified: <% tp.date.now("YYYY-MM-DD") %>
 ---
-# <% tp.date.now("dddd, MMMM DD, YYYY") %>
+# <% tp.date.now("dddd, MMMM D, YYYY") %>
+
+**Contents**
+
+{{toc}}
+
+---
+
+## Day Planner
+
+
+--- 
+
+## #TheRest
+
+
 ---
 
 
-
-
-
 ---
-#### << [[<% tp.date.now("YYYY-MM-DD", -1)%>]] | [[<% tp.date.now("YYYY-MM-DD", 1) %>]] >>
+> [!Nav]
+>  << [[<% tp.date.now("YYYY-MM-DD", -1)%>]] | [[<% tp.date.now("YYYY-MM-DD", 1) %>]] >>
 ---
 
 
