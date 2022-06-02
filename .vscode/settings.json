@@ -5,7 +5,8 @@
         "obsidian",
         "vscode",
         "data",
-        "docs"
+        "docs",
+        "excel-theme"
     ],
     "files.eol": "\n",
     "files.insertFinalNewline": false,
