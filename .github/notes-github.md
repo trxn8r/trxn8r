@@ -1,3 +1,7 @@
+
+
+**Renamed from README.md since `/.github/README.md` overrode `/README.md`**
+
 > Some of the most used files in .github folder:
 >
 > - CODE_OF_CONDUCT.md -> How to engage in community and how to behave yourself.

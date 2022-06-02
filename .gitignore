@@ -2,6 +2,7 @@
 !.obsidian/
 !.vscode/
 !.gitignore
+!.github
 
 # .trash/
 # .exports/
