@@ -4,6 +4,7 @@
         "vivaxy.vscode-conventional-commits",
         "mhutchie.git-graph",
         "eamodio.gitlens",
-        "alexander-yu.vscode-open"
+        "alexander-yu.vscode-open",
+        "angelo-breuer.clock"
     ]
 }
