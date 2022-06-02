@@ -12,20 +12,27 @@ _by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github
 
 ---
 
+## Screenshot
+
+[![TRX8NR Screenshot #1](obsvault-tiller22/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](obsvault-tiller22/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
+
+> 🤯 _Yesssss, this is Microsoft Excel._
+>
+> _Ever seen a spreadsheet with a **SEIZURE WARNING**? That one Dino GIF is a lot to take in._
+
+
+---
 
 ## 1️⃣ Getting Started as a `User`
 
 _⚠ The first hit is always free._
 
-### 1.1. Download the `TRX8NR 🐱‍🐉` Excel Workbook
+### 1.1. Download `TRX8NR 🐱‍🐉` Workbook
 
-<p class="callout info">
+> ⭐ [Download `TRXN8R.xlsx`](./TRXN8R.xlsx)
 
-1. 🔗 [Download the TRXN8R Excel Workbook `.xlsx`](./TRXN8R%20-%20Bulk%20Import%20CSV%20Transactions%20v22.6.1-alpha.2.xlsx)
 
-</p>
-
-### 1.2. Configure TRX8NR to ~~Load~~ Chew On & Digest Your Transactions
+### 1.2. Configure `TRX8NR 🐱‍🐉` to ~~Load~~ Chew On & Digest Your Transactions
 From the main screen, the workbook in the screenshot, `TRX8NR Home`
 
 1. **`Foundation/Transactions Workbook File Path`**
@@ -57,17 +64,12 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 4. **`Config to Use`**
    1. 🚧 #WorkInProgress
    2. Goal is to have `T8R` let you map different configs to different files, based on patterns, paths, and a final manual `YES/NO` confirmation somehow #maybe.
-   3.
 
 5. **`Refresh Data`**
 
 6. **`Review Results`**
 
 
-
-
-
-[![TRX8NR Screenshot](obsvault-tiller22/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](obsvault-tiller22/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
 
 ---
 ---
@@ -76,9 +78,10 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 ## 2️⃣ All the Contents
 
 - [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
+- [Screenshot](#screenshot)
 - [1️⃣ Getting Started as a `User`](#1️⃣-getting-started-as-a-user)
-  - [1.1. Download the `TRX8NR 🐱‍🐉` Excel Workbook](#11-download-the-trx8nr--excel-workbook)
-  - [1.2. Configure TRX8NR to ~~Load~~ Chew On & Digest Your Transactions](#12-configure-trx8nr-to-load-chew-on--digest-your-transactions)
+  - [1.1. Download `TRX8NR 🐱‍🐉` Workbook](#11-download-trx8nr--workbook)
+  - [1.2. Configure `TRX8NR 🐱‍🐉` to ~~Load~~ Chew On & Digest Your Transactions](#12-configure-trx8nr--to-load-chew-on--digest-your-transactions)
 - [2️⃣ All the Contents](#2️⃣-all-the-contents)
 - [3️⃣ Issues, Help, Discussions, etc.](#3️⃣-issues-help-discussions-etc)
 - [4️⃣ Obsidian Vault](#4️⃣-obsidian-vault)
