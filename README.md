@@ -19,6 +19,12 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 >
 > &nbsp;
 
+⚠ Two warnings may popup
+1. `Enable Editing`
+   1. This is because the file was downloaded.
+2. `Enable Content`
+   1. This is to allow access to External Content, the `Transactions Workbook` you will configure.
+
 ---
 
 ## Screenshot
