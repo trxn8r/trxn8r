@@ -12,12 +12,17 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 
 ---
 
-## Download TRXN8R Excel Workbook
+## Download TRXN8R Excel Workbook from Releases
+> &nbsp;
+> 🔗
+>
+>
+> **[DOWNLOAD `TRXN8R.SOME_VERSION.xlsx` from `Releases`](https://github.com/trxn8r/trxn8r/releases)**
+>
+> Look under the expandable **Assets** section.
+>
 > &nbsp;
 >
-> **🔗 [DOWNLOAD `TRXN8R.xlsx`](https://github.com/trxn8r/trxn8r/raw/main/TRXN8R.xlsx) 🔗**
->
-> &nbsp;
 
 ⚠ Two warnings may popup
 1. `Enable Editing`
@@ -40,7 +45,7 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 ## Table of Contents
 
 - [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
-- [Download TRXN8R Excel Workbook](#download-trxn8r-excel-workbook)
+- [Download TRXN8R Excel Workbook from Releases](#download-trxn8r-excel-workbook-from-releases)
 - [Screenshot](#screenshot)
 - [Table of Contents](#table-of-contents)
 - [Why?](#why)
