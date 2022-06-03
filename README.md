@@ -12,10 +12,8 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 
 ---
 
-## Download TRXN8R Excel Workbook from Releases
-> &nbsp;
-> 🔗
->
+## 🔗 Download Latest TRXN8R Excel from Releases
+
 >
 > **[DOWNLOAD `TRXN8R.SOME_VERSION.xlsx` from `Releases`](https://github.com/trxn8r/trxn8r/releases)**
 >
@@ -45,7 +43,7 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 ## Table of Contents
 
 - [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
-- [Download TRXN8R Excel Workbook from Releases](#download-trxn8r-excel-workbook-from-releases)
+- [🔗 Download Latest TRXN8R Excel from Releases](#-download-latest-trxn8r-excel-from-releases)
 - [Screenshot](#screenshot)
 - [Table of Contents](#table-of-contents)
 - [Why?](#why)
