@@ -71,7 +71,7 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 > Best to see [https://career.stevens.pro/tiller](https://career.stevens.pro/organizations/tiller/README#UPDATE+2022-05-22+ENTERING+BUILDER+CHALLENGE+2022)
 
 
-[![Diagram PQ Model Overview](docs/diagrams/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.png)](https://career.stevens.pro/organizations/tiller/README)
+[![Diagram PQ Model Overview](docs/diagrams/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.thumb.png)](https://career.stevens.pro/organizations/tiller/README)
 
 
 ---
