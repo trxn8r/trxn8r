@@ -7,7 +7,9 @@
         "data",
         "docs",
         "excel-theme",
-        "power-query"
+        "power-query",
+        "brand",
+        "README"
     ],
     "files.eol": "\n",
     "files.insertFinalNewline": false,
