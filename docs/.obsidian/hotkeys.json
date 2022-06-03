@@ -287,6 +287,13 @@
         "Shift"
       ],
       "key": "R"
+    },
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "R"
     }
   ],
   "calendar:reveal-active-note": [

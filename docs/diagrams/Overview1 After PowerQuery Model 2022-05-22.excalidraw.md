@@ -103,7 +103,7 @@ Why Not Tiller?
 Excel has Power Query built-in?!
 
 I used that ~2 years ago
-with [[Power BI]] 
+with [[Power BI]]
 and [[Moodle]] ^zEOz9PiW
 
 Lack of CSV Importer
@@ -112,7 +112,7 @@ Lack of CSV Importer
 Lack of Community Solutions, Support/Familiarness vs Google, etc. ^ZAelETt3
 
 MS Excel Local Data
-vs 
+vs
 Cloud Only w/ Google ^8Rxk2VLB
 
 ⚡ ^W1l5Q8DK
@@ -134,7 +134,7 @@ DO STUFF * ^fuMdpiks
 https://career.stevens.pro/tiller ^WsvnejfR
 
 I'll do it, with MAGIC!
-Just like how I got a date 
+Just like how I got a date
   (jk, who dates magicians?!)
 Magic = Tools = Obsidian, OBS, Davinci Resolve, GitHub, Power Query, and more! ^kDymTxjp
 
@@ -144,7 +144,7 @@ Magic = Tools = Obsidian, OBS, Davinci Resolve, GitHub, Power Query, and more! ^
 
 
 # Embedded files
-a0bc43020fe0bb3fdbdb2cf23d744f2ff6014091: [[diagrams/_assets/SOURCES/tiller-challenge-2022 (2).png]]
+a0bc43020fe0bb3fdbdb2cf23d744f2ff6014091: [[diagrams/_assets/SOURCES/trxn8r (2).png]]
 ccb93a08d0a9fa420ca0d739f84cca7ceed5e009: [[diagrams/_assets/SOURCES/Pasted Image 20220522213406_179.png]]
 1b76987aca7a5d52a87085393ae90cc24431312a: [[diagrams/_assets/SOURCES/Pasted Image 20220522214808_923.png]]
 f255427a403fc72fed8817aa318b0c80a90727c5: [[diagrams/_assets/SOURCES/Pasted Image 20220522214900_997.png]]
@@ -4265,7 +4265,7 @@ ecd21f84ff4e651b42c7fea2a3308af3a8b8208a: [[diagrams/_assets/README/Pasted Image
 			"strokeSharpness": "round",
 			"boundElements": [],
 			"updated": 1653285653980,
-			"link": "https://github.com/gsteve3/tiller-challenge-2022",
+			"link": "https://github.com/trxn8r/trxn8r",
 			"status": "pending",
 			"fileId": "d6e9048b3e15c2aaa371c27864677fab9edfddc9",
 			"scale": [
@@ -4326,7 +4326,7 @@ ecd21f84ff4e651b42c7fea2a3308af3a8b8208a: [[diagrams/_assets/README/Pasted Image
 				}
 			],
 			"updated": 1653285682567,
-			"link": "https://github.com/gsteve3/tiller-challenge-2022",
+			"link": "https://github.com/trxn8r/trxn8r",
 			"status": "pending",
 			"fileId": "a0bc43020fe0bb3fdbdb2cf23d744f2ff6014091",
 			"scale": [

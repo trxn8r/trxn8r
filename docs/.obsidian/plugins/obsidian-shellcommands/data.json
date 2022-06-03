@@ -29,7 +29,7 @@
     },
     "1": {
       "platform_specific_commands": {
-        "default": "code --goto \"{{vault_path}}\" \"{{file_path:absolute}}:{{caret_position}}\""
+        "default": "code --goto \"{{vault_path}}/../\" \"{{file_path:absolute}}:{{caret_position}}\""
       },
       "shells": {},
       "alias": "vscode",

@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "CHANGELOG_OBSIDIAN",
+      "path": "CHANGELOG_OBSIDIAN.md"
+    },
+    {
+      "basename": "2022-05-22 Why Power Query",
+      "path": "2022-05-22 Why Power Query.md"
+    },
+    {
+      "basename": "2022-05-29 Tiller Meet Trx8r",
+      "path": "2022-05-29 Tiller Meet Trx8r.md"
+    },
+    {
+      "basename": "2022-06-03 GitHub Markdown GFM - How to Add Collapsable Section with Summary",
+      "path": "2022-06-03 GitHub Markdown GFM - How to Add Collapsable Section with Summary.md"
+    },
+    {
+      "basename": "2022-06-03",
+      "path": "blog/2022-06-03.md"
+    },
+    {
+      "basename": "@GregSweats",
+      "path": "@GregSweats.md"
+    },
+    {
       "basename": "2022-06-02",
       "path": "blog/2022-06-02.md"
     },
@@ -57,14 +81,6 @@
       "path": "Untitled.md"
     },
     {
-      "basename": "@GregSweats",
-      "path": "@GregSweats.md"
-    },
-    {
-      "basename": "2022-05-29 Tiller Meet Trx8r",
-      "path": "2022-05-29 Tiller Meet Trx8r.md"
-    },
-    {
       "basename": "2022-05-27",
       "path": "blog/2022-05-27.md"
     },
@@ -87,14 +103,6 @@
     {
       "basename": "Overview1 After PowerQuery Model 2022-05-22.excalidraw",
       "path": "diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.md"
-    },
-    {
-      "basename": "CHANGELOG_OBSIDIAN",
-      "path": "CHANGELOG_OBSIDIAN.md"
-    },
-    {
-      "basename": "2022-05-22 Why Power Query",
-      "path": "2022-05-22 Why Power Query.md"
     },
     {
       "basename": "2022-05-24 Importer Workflow Diagram",
@@ -191,14 +199,6 @@
     {
       "basename": "Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v1",
       "path": "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v1.pdf"
-    },
-    {
-      "basename": "Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.2",
-      "path": "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.2.pdf"
-    },
-    {
-      "basename": "Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.1",
-      "path": "resume/2022/archive/Greg Stevens - DevOps, Cloud, Full-stack Web Dev, PM, Agile - v2022.2.1.pdf"
     }
   ],
   "omittedPaths": [],

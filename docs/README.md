@@ -1,7 +1,7 @@
 ---
 project_started: 2022-05-21 at 12:26:35 MDT
-project_home: https://github.com/gsteve3/tiller-challenge-2022
-project_author: [@gsteve3](https://github.com/gsteve3)
+project_home: https://github.com/trxn8r/trxn8r
+project_author: [@GregSweats](https://github.com/GregSweats)
 aliases: [tiller,tiller2022]
 ---
 
@@ -9,7 +9,7 @@ aliases: [tiller,tiller2022]
 
 > [!URL] Project Home #canonical
 >
-> [<img src="https://github.com/favicon.ico" width="16" height="16"> GitHub.com/gsteve3/tiller-challenge-2022](https://github.com/gsteve3/tiller-challenge-2022)
+> [<img src="https://github.com/favicon.ico" width="16" height="16"> GitHub.com/gsteve3/trxn8r](https://github.com/trxn8r/trxn8r)
 >
 
 ---

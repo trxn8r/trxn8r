@@ -1,4 +1,4 @@
-# [Tiller](https://www.tillerhq.com) 🤑 meet [Trxn8r](https://github.com/gsteve3/tiller-challenge-2022) 🐉 The&nbsp;[Slideshow](https://help.obsidian.md/Plugins/Slides)👋
+# [Tiller](https://www.tillerhq.com) 🤑 meet [Trxn8r](https://github.com/trxn8r/trxn8r) 🐉 The&nbsp;[Slideshow](https://help.obsidian.md/Plugins/Slides)👋
 
 ---
 

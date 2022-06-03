@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "1fb14d053d7237d9",
+        "id": "f3c2839db9fea644",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "CHANGELOG_OBSIDIAN.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "CHANGELOG_OBSIDIAN.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,6 +119,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "CHANGELOG_OBSIDIAN.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +141,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "CHANGELOG_OBSIDIAN.md"
+              }
             }
           },
           {
@@ -182,6 +190,14 @@
             "id": "1f43afe160b65e17",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "7266f59d2c366e48",
+            "type": "leaf",
+            "state": {
               "type": "Saved Queries View",
               "state": {}
             }
@@ -194,17 +210,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "1fb14d053d7237d9",
+  "active": "f3c2839db9fea644",
   "lastOpenFiles": [
+    "CHANGELOG_OBSIDIAN.md",
+    "2022-05-22 Why Power Query.md",
+    "2022-05-29 Tiller Meet Trx8r.md",
+    "2022-06-03 GitHub Markdown GFM - How to Add Collapsable Section with Summary.md",
+    "blog/2022-06-03.md",
+    "@GregSweats.md",
     "blog/2022-06-02.md",
     "templater/DailyNoteTemplate.md",
     "blog/2022-06-01.md",
-    "2022-06-01 Remove Private CSV Files for First Release.md",
-    "blog/2022-05-31.md",
-    "2022-05-30 Trippy Dinosaur GIF Sources.md",
-    "blog/2022-05-30.md",
-    "diagrams/_assets/Announcing Tiller's 2022 Microsoft Excel Builders Challenge - News   Announcements - Tiller Community.png",
-    "Untitled 1.md",
-    "blog/2022-05-29.md"
+    "2022-06-01 Remove Private CSV Files for First Release.md"
   ]
 }

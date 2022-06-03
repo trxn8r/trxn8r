@@ -3,6 +3,13 @@
 ---
 
 
+### 2022-06-03 Improve vscode Shell Command
+
+- `vscode Shell Command` now opens parent directory as the vscode project.
+	- Fixes problems with `ALT + V` opening vscode within this vault, but the git repo is actually in the parent directory.
+	- :)
+
+
 ## 2022-05-25 #
 
 
