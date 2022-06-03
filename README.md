@@ -32,7 +32,7 @@ _**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://gith
 
 ## Screenshot
 
-[![TRX8NR Screenshot #1](docs/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](docs/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
+[![TRX8NR Screenshot #1](docs/_assets/screenshots/keep/TRXN8R%20Screenshot.png)](docs/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
 
 > 🤯 _Yesssss, this is Microsoft Excel._
 >
