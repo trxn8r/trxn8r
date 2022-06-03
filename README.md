@@ -20,7 +20,16 @@ _by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github
 >
 > _Ever seen a spreadsheet with a **SEIZURE WARNING**? That one Dino GIF is a lot to take in._
 
+## Why?
 
+> Best to see [https://career.stevens.pro/tiller](https://career.stevens.pro/organizations/tiller/README#UPDATE+2022-05-22+ENTERING+BUILDER+CHALLENGE+2022)
+
+
+[![Diagram](https://publish-01.obsidian.md/access/29884b7c70f99066e4067ed7817a36d9/organizations/tiller/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.png)](https://career.stevens.pro/organizations/tiller/README)
+
+
+---
+---
 ---
 
 ## 1️⃣ Getting Started as a `User`
@@ -97,6 +106,7 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 
 - [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
 - [Screenshot](#screenshot)
+- [Why?](#why)
 - [1️⃣ Getting Started as a `User`](#1️⃣-getting-started-as-a-user)
   - [1.1. Download the Excel Workbook](#11-download-the-excel-workbook)
   - [1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)](#12-configure-trx8nr--to-extract-transform-and-load-etl-the-results-of-your-transactions-trxns)
@@ -252,14 +262,12 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
 ## Diagram Samples (`/diagrams/`)
 
 
-> _👉 Checkout the [Obsidian Vault]() for more, and up-to-date information._
-
+- **#update 2022-06-02: These are somewhat outdated but still surprisingly close!**
+- _👉 Checkout the [Obsidian Vault]() for more, and up-to-date information._
 
 ![obsvault-tiller22/2022-05-24 Importer Workflow Diagram.png](obsvault-tiller22/2022-05-24%20Importer%20Workflow%20Diagram.png)
 
 ![obsvault-tiller22/2022-05-24 Diagram of What Importer Should Do](obsvault-tiller22/diagrams/2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.png)
-
-![obsvault-tiller22/diagrams/Overview1 After PowerQuery Model 2022-05-22.excalidraw.thumb.png](obsvault-tiller22/diagrams/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.thumb.png)
 
 
 ---
