@@ -6,7 +6,8 @@
         "vscode",
         "data",
         "docs",
-        "excel-theme"
+        "excel-theme",
+        "power-query"
     ],
     "files.eol": "\n",
     "files.insertFinalNewline": false,
