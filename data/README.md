@@ -1,5 +1,9 @@
 # README `/data/`
 
+## Tiller Sample Data File
+
+> https://www.tillerhq.com/budget-sheet-sample-data-for-google-sheets-and-excel/
+
 ## Files Ignored by Git
 Use the force flag, i.e. `git add --force data/some-file-you-want-to-keep.csv`  to add files in data.
 

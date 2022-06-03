@@ -1,8 +1,8 @@
-# README TRX8N8R
+# README - Transactionator (`TRXN8R`)
 
 ## Tiller's 2022 Microsoft Excel Builders Challenge Entry
 
-_by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github.com/GregSweats)_
+_**by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github.com/GregSweats)**_
 
 ---
 
@@ -12,20 +12,57 @@ _by [Greg Stevens](https://www.stevens.pro/) a.k.a. [@GregSweats](https://github
 
 ---
 
+## Download TRXN8R Excel Workbook
+> &nbsp;
+>
+> **🔗 [DOWNLOAD `TRXN8R.xlsx`](https://github.com/trxn8r/trxn8r/raw/main/TRXN8R.xlsx) 🔗**
+>
+> &nbsp;
+
+---
+
 ## Screenshot
 
-[![TRX8NR Screenshot #1](obsvault-tiller22/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](obsvault-tiller22/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
+[![TRX8NR Screenshot #1](docs/_assets/screencasts/../screenshots/keep/TRXN8R%20Screenshot.png)](docs/_assets/screenshots/keep/TRXN8R%20Screenshot.png)
 
 > 🤯 _Yesssss, this is Microsoft Excel._
 >
 > _Ever seen a spreadsheet with a **SEIZURE WARNING**? That one Dino GIF is a lot to take in._
+
+---
+
+## Table of Contents
+
+- [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
+- [Download TRXN8R Excel Workbook](#download-trxn8r-excel-workbook)
+- [Screenshot](#screenshot)
+- [Table of Contents](#table-of-contents)
+- [Why?](#why)
+- [1️⃣ Getting Started as a `User`](#1️⃣-getting-started-as-a-user)
+  - [1.1. Download the Excel Workbook](#11-download-the-excel-workbook)
+  - [1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)](#12-configure-trx8nr--to-extract-transform-and-load-etl-the-results-of-your-transactions-trxns)
+- [2️⃣ Issues, Help, Discussions, etc.](#2️⃣-issues-help-discussions-etc)
+- [3️⃣ Obsidian Vault](#3️⃣-obsidian-vault)
+    - [Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo](#example-2022-06-01---open-folder-as-vault-freshly-cloned-repo)
+- [Contributing](#contributing)
+- [Getting Started as a `Developer`](#getting-started-as-a-developer)
+  - [Download ZIP, Excel, or Git Clone the Repo](#download-zip-excel-or-git-clone-the-repo)
+    - [Git Clone the Repo](#git-clone-the-repo)
+      - [Example](#example)
+    - [Caveats](#caveats)
+      - [Usually Avoid Cloning into a OneDrive Folder](#usually-avoid-cloning-into-a-onedrive-folder)
+- [Goals / Thoughts](#goals--thoughts)
+- [Diagram Samples (`/diagrams/`)](#diagram-samples-diagrams)
+
+---
+
 
 ## Why?
 
 > Best to see [https://career.stevens.pro/tiller](https://career.stevens.pro/organizations/tiller/README#UPDATE+2022-05-22+ENTERING+BUILDER+CHALLENGE+2022)
 
 
-[![Diagram](https://publish-01.obsidian.md/access/29884b7c70f99066e4067ed7817a36d9/organizations/tiller/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.png)](https://career.stevens.pro/organizations/tiller/README)
+[![Diagram PQ Model Overview](docs/diagrams/Overview1%20After%20PowerQuery%20Model%202022-05-22.excalidraw.png)](https://career.stevens.pro/organizations/tiller/README)
 
 
 ---
@@ -39,6 +76,12 @@ _⚠ The first hit is always free._
 ### 1.1. Download the Excel Workbook
 
 > ⭐ [Download `TRXN8R.xlsx`](https://github.com/trxn8r/trxn8r/raw/main/TRXN8R.xlsx)
+
+- **LATEST VERSION** will always be the only `.xlsx` in the root of this project.
+- `/TRXN8R.xlsx` is a copy/paste alias, a gross, crude, redirect.
+- I think having the version in the name is good, especially when filing issues or knowing when to update.
+- Could be a hidden, checkable value within a cell or Power Query Param though...hmmmm...
+
 
 
 ### 1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)
@@ -102,49 +145,26 @@ From the main screen, the workbook in the screenshot, `TRX8NR Home`
 ---
 ---
 
-## 2️⃣ All the Contents
 
-- [Tiller's 2022 Microsoft Excel Builders Challenge Entry](#tillers-2022-microsoft-excel-builders-challenge-entry)
-- [Screenshot](#screenshot)
-- [Why?](#why)
-- [1️⃣ Getting Started as a `User`](#1️⃣-getting-started-as-a-user)
-  - [1.1. Download the Excel Workbook](#11-download-the-excel-workbook)
-  - [1.2. Configure `TRX8NR 🐱‍🐉` to Extract, Transform, and Load (`ETL`) the Results of Your Transactions (`Trxns`)](#12-configure-trx8nr--to-extract-transform-and-load-etl-the-results-of-your-transactions-trxns)
-- [2️⃣ All the Contents](#2️⃣-all-the-contents)
-- [3️⃣ Issues, Help, Discussions, etc.](#3️⃣-issues-help-discussions-etc)
-- [4️⃣ Obsidian Vault](#4️⃣-obsidian-vault)
-    - [Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo](#example-2022-06-01---open-folder-as-vault-freshly-cloned-repo)
-- [Contributing](#contributing)
-- [Getting Started as a `Developer`](#getting-started-as-a-developer)
-  - [Download ZIP, Excel, or Git Clone the Repo](#download-zip-excel-or-git-clone-the-repo)
-    - [Git Clone the Repo](#git-clone-the-repo)
-      - [Example](#example)
-    - [Caveats](#caveats)
-      - [Usually Avoid Cloning into a OneDrive Folder](#usually-avoid-cloning-into-a-onedrive-folder)
-- [Goals / Thoughts](#goals--thoughts)
-- [Diagram Samples (`/diagrams/`)](#diagram-samples-diagrams)
-
----
-
-## 3️⃣ Issues, Help, Discussions, etc.
+## 2️⃣ Issues, Help, Discussions, etc.
 
 - [Issues · trxn8r/trxn8r](https://github.com/trxn8r/trxn8r/issues)
 - [Projects · trxn8r](https://github.com/trxn8r/trxn8r/projects?type=beta)
 
 
 
-## 4️⃣ Obsidian Vault
+## 3️⃣ Obsidian Vault
 
-[`./obsvault-tiller22/`](obsvault-tiller22/)
+[`./docs/`](docs/)
 
 
-- Glance at the [Obsidian Vault `./obsvault-tiller22/`](obsvault-tiller22/)
+- Glance at the [Obsidian Vault `./docs/`](docs/)
 - That `"Vault"` is where [Obsidian.md](https://obsidian.md/) magic comes into play.
-- Install/Open [`Obsidian` _(for free)_](https://obsidian.md/) and then `"Open folder as vault"` and open the vault folder [`./obsvault-tiller22./`](obsvault-tiller22/).
+- Install/Open [`Obsidian` _(for free)_](https://obsidian.md/) and then `"Open folder as vault"` and open the vault folder [`./obsvault-tiller22./`](docs/).
 
 
 #### Example 2022-06-01 - Open Folder as Vault, Freshly Cloned Repo
-![Getting Started with Obsidian](obsvault-tiller22/_assets/screencasts/2022-06-01%20-%20Getting%20Started%20-%20Open%20Obsidian%20Vault%20Demo.gif)
+![Getting Started with Obsidian](docs/_assets/screencasts/2022-06-01%20-%20Getting%20Started%20-%20Open%20Obsidian%20Vault%20Demo.gif)
 
 
 
@@ -265,9 +285,9 @@ _Powershell example, rather than the usual `shell` Markdown language, just to be
 - **#update 2022-06-02: These are somewhat outdated but still surprisingly close!**
 - _👉 Checkout the [Obsidian Vault]() for more, and up-to-date information._
 
-![obsvault-tiller22/2022-05-24 Importer Workflow Diagram.png](obsvault-tiller22/2022-05-24%20Importer%20Workflow%20Diagram.png)
+![docs/2022-05-24 Importer Workflow Diagram.png](docs/2022-05-24%20Importer%20Workflow%20Diagram.png)
 
-![obsvault-tiller22/2022-05-24 Diagram of What Importer Should Do](obsvault-tiller22/diagrams/2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.png)
+![docs/2022-05-24 Diagram of What Importer Should Do](docs/diagrams/2022-05-24%20Diagram%20of%20What%20Importer%20Should%20Do.png)
 
 
 ---
