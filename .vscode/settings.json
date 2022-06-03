@@ -9,7 +9,8 @@
         "excel-theme",
         "power-query",
         "brand",
-        "README"
+        "README",
+        "jekyll"
     ],
     "files.eol": "\n",
     "files.insertFinalNewline": false,
