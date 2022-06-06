@@ -3,7 +3,7 @@ Power Query Snippets, Formulas, Variables, Scratchpad, etc.
 
 ## See Obsidian Vault
 
-> [/obsvault-tiller22/queries/](/obsvault-tiller22/queries/)
+> [/docs/queries/](/docs/queries/)
 
 Storing the queries in the vault so that we can easily reference Vault pages with easy, quick, `[[Wiki Style]]` links, and all the Obsidian goodness.
 
