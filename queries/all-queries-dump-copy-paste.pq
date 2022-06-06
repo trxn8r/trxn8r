@@ -185,12 +185,12 @@ in
 // T8R_IMPORT_CONFIGS_EXCEL_TABLE_NAME
 "t8r_ImportConfigsTable" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 
-// t8r_ImportConfigs
+// T8R_IMPORT_CONFIGS
 /**
  * t8r_ImportConfigs
  *
- * @version
- * @since 2022-06-03
+ * @since   2022-06-03
+ * @version 2022-06-06
  */
 // Source = Excel.CurrentWorkbook(){[Name=T8R_CONFIGS_WS_NAME]}[Content],\
 let
@@ -211,9 +211,24 @@ let
         {"FileNameMatches", type text},
         {"ConfigName", type text},
         {"Note", type text}
-    })
+    }),
+    /*
+    #"Select Columns from Transactions" = Table.SelectColumns(
+        #"Changed Type",
+        T8R_SOURCE_TRXNS_HEADERS_LIST
+    ),
+    */
+    /*
+    I LOVE YOU POWER QUERY, EVEN IF YOU ARE FROM M$ ;)
+    Table.PrefixColumns(table as table, prefix as text) as table
+    https://docs.microsoft.com/en-us/powerquery-m/table-prefixcolumns
+    */
+    #"PrefixColumns Config." = Table.PrefixColumns(
+        #"Changed Type",
+        "Config"    // Power Query adds a "." automatically.
+    )
 in
-    #"Changed Type"
+    #"PrefixColumns Config."
 
 // t8r_ImportConfigsWithFiles
 /**
@@ -222,7 +237,7 @@ in
  */
 let
     // #DebugHelper
-    ImportConfigs = t8r_ImportConfigs,
+    ImportConfigs = T8R_IMPORT_CONFIGS,
     ImportFiles = T8R_IMPORT_FILES,
 
     // https://support.microsoft.com/en-us/office/create-a-fuzzy-match-power-query-ffdd5082-c0c8-4c8e-a794-bd3962b90649
@@ -233,7 +248,7 @@ let
     */
     #"Merged Queries" = Table.FuzzyNestedJoin(
         ImportConfigs,
-        {"FileNameMatches"},
+        {"Config.FileNameMatches"},
 
         ImportFiles,
         {"ImportFile.Name"},
@@ -256,14 +271,18 @@ let
             Threshold=T8R_FUZZY_MATCH_THRESHOLD
         ]
     ),
-    #"Filtered Rows" = Table.SelectRows(#"Merged Queries", each [ConfigName] <> null and [ConfigName] <> "")
+    #"Filtered Rows not null ConfigName" = Table.SelectRows(
+        #"Merged Queries",
+        each [Config.ConfigName] <> null and [Config.ConfigName] <> ""
+    ),
+    #"Reordered Columns" = Table.ReorderColumns(#"Filtered Rows not null ConfigName",{"ImportFiles", "Config.ConfigName", "Config.Note", "Config.FileNameMatches", "Config.UseFirstRowAsHeaders", "Config.FolderPath", "Config.TransformerName", "Config.IsTransformerValid", "Config.CsvColumns", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Column8", "Config.Column9", "Config.Column10", "Config.slug", "Config.Column21", "Config.Column22", "Config.Column23", "Config.Column24"})
 in
-    #"Filtered Rows"
+    #"Reordered Columns"
 
 // T8R_FUZZY_MATCH_THRESHOLD
 0.1 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
 
-// t8r_ImportConfigsWithFiles (2)
+// t8r_ImportConfigsWithFilesTransformedAndNormalized
 /**
  *
  * @since 2022-06-06
@@ -271,34 +290,128 @@ in
  */
 let
     Source = t8r_ImportConfigsWithFiles,
-    ConvertCsvColumnsToList = Table.AddColumn(
+    ConvertCsvColumnsToList = TableAddColumnToBeginning(
         Source,
-        "CsvColumnsList",
+        "Config.CsvColumnsList",
         each Text.Split(
             // prevent null not text error.
-            [CsvColumns] ?? "",
+            [Config.CsvColumns] ?? "",
             ","
         )
     ),
-    #"Reordered Columns1" = Table.ReorderColumns(ConvertCsvColumnsToList,{"ImportFiles", "CsvColumnsList", "ConfigName", "Note", "FileNameMatches", "UseFirstRowAsHeaders", "FolderPath", "TransformerName", "IsTransformerValid", "CsvColumns", "RemainingFieldsAreDynamic", "Date", "Description", "Category", "Amount", "Account", "Account #", "Institution", "Column8", "Column9", "Column10", "slug", "Column21", "Column22", "Column23", "Column24"}),
-    AddCsvDoc = Table.AddColumn(
-       #"Reordered Columns1",
-        "CsvDoc",
-        each t8r_TransformCsvFile_func(
-            [ImportFile.Content],
-            [CsvColumnsList],
-            [UseFirstRowAsHeaders]
-        )
-    ),
     #"Expanded ImportFiles" = Table.ExpandTableColumn(
-        AddCsvDoc,
+        ConvertCsvColumnsToList,
         "ImportFiles",
         {"ImportFile.Content", "ImportFile.Name", "ImportFile.Extension", "ImportFile.Folder Path", "ImportFile.ShouldImport"}
+    ),
+    #"Parse CSV Files" = TableAddColumnToBeginning(
+       #"Expanded ImportFiles",
+        "CsvDoc",
+        each t8r_ParseCsvFile_func(
+            [ImportFile.Content],
+            [Config.CsvColumnsList],
+            [Config.UseFirstRowAsHeaders]
+        )
+    ),
+    // #magic part1 - Run Custom Transformers from the [[IMPORT_CONFIGS_WORKSHEET]] ImportConfig.TransformerName
+    Transformed = Table.AddColumn(
+        #"Parse CSV Files",
+        "CsvDocTransformed",
+        each
+            // Expression.Evaluate(
+            // [Config.TransformerName],
+            // https://ssbi-blog.de/wp-content/uploads/2017/11/16-ExpressionEvaluate-in-a-calculated-column_solution.jpg
+            // [ _=_ ]
+            Function.Invoke(
+                // Expression.Evaluate will get the function to pass to Function.Invoke
+                Expression.Evaluate(
+                    [Config.TransformerName],
+                    #shared
+                ),
+                // Call with a couple arguments
+                // Like specificity over passing entire row, especially for testing.
+                // Could be old bad habits, or new good ones.
+                {
+                    [CsvDoc],
+                    [ImportFile.Name],
+                    _
+                }
+            )
+            /*
+            Record.AddField(
+                #shared,
+                "t8r_CurrentCsvDoc",
+                _
+            )
+            */
+        // )
+    ),
+    #"Reordered Columns" = Table.ReorderColumns(Transformed,{"CsvDocTransformed", "CsvDoc", "Config.CsvColumnsList", "ImportFile.Content", "ImportFile.Name", "ImportFile.Extension", "ImportFile.Folder Path", "ImportFile.ShouldImport", "Config.ConfigName", "Config.Note", "Config.FileNameMatches", "Config.UseFirstRowAsHeaders", "Config.FolderPath", "Config.TransformerName", "Config.IsTransformerValid", "Config.CsvColumns", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Column8", "Config.Column9", "Config.Column10", "Config.slug", "Config.Column21", "Config.Column22", "Config.Column23", "Config.Column24"}),
+    // #magic part2 - after ...FilesTransformed
+    Normalized = TableAddColumnToBeginning(
+        #"Reordered Columns",
+        "CsvDocNormalized",
+        each t8r_NormalizeTrxns_func([CsvDocTransformed])
+    ),
+    // Converted CsvDoc, drop Content to hopefully save memory/file size.
+    #"Removed Transformed Config.CsvColumns" = Table.RemoveColumns(
+        Normalized,
+        {"ImportFile.Content", "Config.CsvColumns"}
     )
 in
-    #"Expanded ImportFiles"
+    #"Removed Transformed Config.CsvColumns"
 
-// t8r_TransformCsvFile_func
+// TableAddColumnToBeginning
+/*
+  Table.AddColumn
+    // Move Custom Columns (FilePath, ShouldImport) to the beginning.
+    #"Reordered Columns1" = Table.ReorderColumns(
+        AddFilePath,
+        List.Zip()
+        {"FilePath", "ShouldImport""Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"})
+    ,
+*/
+/*
+            Table.AddColumn(table as table, newColumnName as text, columnGenerator as function, optional columnType as nullable type) as table
+https://docs.microsoft.com/en-us/powerquery-m/table-addcolumn
+            */
+let
+    TableAddColumnToBeginning = (
+        table as table,
+        newColumnName as text,
+        columnGenerator as function,
+        optional columnType as nullable type
+    ) =>
+        let
+            OriginalColumns = Table.ColumnNames(table),
+            AddedColumn = Table.AddColumn(
+                table,
+                newColumnName,
+                columnGenerator,
+                columnType ?? null
+            ),
+            NewColumns =   // > List.InsertRange(list as list, index as number, values as list) as list
+                // > https://docs.microsoft.com/en-us/powerquery-m/list-insertrange
+                List.InsertRange(
+                    OriginalColumns,
+                    0,
+                    { newColumnName }
+                ),
+            // Move Custom Columns (FilePath, ShouldImport) to the beginning.
+            ReorderedColumns = Table.ReorderColumns(
+                AddedColumn,
+                NewColumns
+            )
+
+        in
+            ReorderedColumns
+in
+    TableAddColumnToBeginning
+
+// Careful.... List.Zip acepts ONE argument, a List of Lists.
+                // Did PQ change it so data types are lowercase and business data is upper case to make it more impprtant? #ponder
+
+// t8r_ParseCsvFile_func
 let
     TransformCsv_func = (
         FileContent as binary,
@@ -335,148 +448,6 @@ let
         in PromotedHeaders
 in
     TransformCsv_func
-
-// t8r_ImportFilesTransformed
-/**
- * t8r_ImportFilesTransformed
- *
- * @since 2022-06-04
- * @version 2022-06-05
- */
-let
-    Source = t8r_ImportConfigsWithFiles,
-
-/*
-    #"Reordered Columns" = Table.ReorderColumns(
-        Source,
-        {"Config.ConfigName", "Config.FileNameMatches", "Config.UseFirstRowAsHeaders", "Content", "File.Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path", "ShouldImport", "Config.Note", "Config.FolderPath", "Config.TransformerName", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Month", "Config.Week", "Config.Check Number", "Config.Full Description", "Config.Transaction ID", "Config.Account ID", "Config.Date Added", "Config.slug"
-        }
-    ),
-*/
-     AddCsvDoc = Table.AddColumn(
-       Source,
-        "CsvDoc",
-        each t8r_TransformCsvFile_func(
-            [Content],
-             // Csv.Document(...) options
-            Text.Split(
-                // prevent null not text error.
-                [Config.CsvColumns] ?? "",
-                ","
-            ),
-            [Config.UseFirstRowAsHeaders] // Use FirstRowAsHeaders
-        )
-    ),
-    RemapCsvDoc = Table.AddColumn(
-        AddCsvDoc,
-        "CsvDocMapped",
-        each t8r_RemapCsv_func([CsvDoc])
-    ),
-
-    Transformed = Table.AddColumn(
-        RemapCsvDoc,
-        "CsvDocTransformed",
-        each
-
-            // Expression.Evaluate(
-            // [Config.TransformerName],
-            // https://ssbi-blog.de/wp-content/uploads/2017/11/16-ExpressionEvaluate-in-a-calculated-column_solution.jpg
-            // [ _=_ ]
-            Function.Invoke(
-                // Expression.Evaluate will get the function to pass to Function.Invoke
-                Expression.Evaluate(
-                    [Config.TransformerName],
-                    #shared
-                ),
-                // Call with a couple arguments
-                // Like specificity over passing entire row, especially for testing.
-                // Could be old bad habits, or new good ones.
-                {
-                    [CsvDoc],
-                    [File.Name],
-                    _
-                }
-            )
-            /*
-            Record.AddField(
-                #shared,
-                "t8r_CurrentCsvDoc",
-                _
-            )
-            */
-        // )
-    )
-in
-    Transformed
-
-// t8r_RemapCsv_func
-let
-    t8r_MapCsv_func = (CsvDocument) =>
-        let
-            Source = CsvDocument
-        in
-            Source
-
-in
-    t8r_MapCsv_func
-
-// t8r_ImportFilesNormalized
-/**
- * t8r_ImportFilesNormalized
- *
- * @since   2022-06-05
- * @version 2022-06-05
- *
- */
-let
-    // Expanded the CsvDoc that passed through the Custom Transformers
-    Source = t8r_ImportFilesTransformed,
-    #"Removed Columns" = Table.RemoveColumns(
-        Source,
-        {"CsvDocMapped", "CsvDoc"}
-    ),
-    Normalized = Table.AddColumn(
-        #"Removed Columns",
-        "CsvNormalized",
-        each t8r_NormalizeCsv_func(
-            [CsvDocTransformed]
-        )
-    ),
-    #"Reordered Columns" = Table.ReorderColumns(
-        Normalized,
-        // todo: #fragile, nice to be dynamic list
-        {
-            "CsvNormalized", "CsvDocTransformed", "Config.ConfigName", "Config.UseFirstRowAsHeaders", "Config.CsvColumns", "Config.FileNameMatches", "Content", "File.Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path", "ShouldImport", "Config.Note", "Config.FolderPath", "Config.TransformerName", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Month", "Config.Week", "Config.Check Number", "Config.Full Description", "Config.Transaction ID", "Config.Account ID", "Config.Date Added", "Config.slug"
-        }
-    ),
-    TrxnsHeadersList = T8R_SOURCE_TRXNS_HEADERS_LIST,
-    //
-    SelectColumnCsvNormalized = Table.SelectColumns(
-        #"Reordered Columns",
-        {"CsvNormalized"}
-    ),
-    #"Expanded CsvNormalized" = Table.ExpandTableColumn(
-        SelectColumnCsvNormalized,
-        "CsvNormalized",
-        TrxnsHeadersList
-    ),
-    #"Changed Type" = Table.TransformColumnTypes(
-        #"Expanded CsvNormalized",
-        {
-            {"Date", type date},
-            {"Amount", Currency.Type},
-            {"Description", type text},
-            {"Account", type text},
-            {"Account #", type text},
-            {"Institution", type text}
-        }
-    ),
-    #"Filtered Rows" = Table.SelectRows(
-        #"Changed Type",
-        each [Date] <> null
-    )
-in
-    #"Filtered Rows"
 
 // T8R_SOURCE_WORKBOOK_PATH_PROCESSED
 /**
@@ -629,7 +600,7 @@ let
 in
     FinalStep
 
-// t8r_NormalizeCsv_func
+// t8r_NormalizeTrxns_func
 /**
  * Invoked by [[t8r_ImportFilesWithCsvDocNormalized]]
  *
@@ -638,16 +609,221 @@ in
  */
 let
     t8r_TrxnsHeadersList = T8R_SOURCE_TRXNS_HEADERS_LIST,
-    t8r_NormalizeCsvDoc_func = (CsvDoc) =>
+    t8r_NormalizeCsvDoc_func = (CsvDoc as table, optional MissingFieldHandler) =>
 
     let  NormalizedCols = Table.SelectColumns(
         CsvDoc,
         t8r_TrxnsHeadersList,
-        MissingField.UseNull
+        // MissingField.UseNull
+        MissingFieldHandler ?? MissingField.Ignore
     )
     in NormalizedCols
 in
     t8r_NormalizeCsvDoc_func
+
+// t8r_ImportTrxnsFromFiles
+let
+    Source = t8r_ImportConfigsWithFilesTransformedAndNormalized,
+    #"Expanded CsvDocTransformed" = Table.ExpandTableColumn(
+        Source,
+        "CsvDocTransformed",
+        Table.ColumnNames(Source[CsvDocTransformed]{0})
+        // {"Date", "Description", "Transfer", "Balance", "Withdrawal", "Deposit"}
+    ),
+    #"Filtered Rows" = Table.SelectRows(
+        #"Expanded CsvDocTransformed",
+        each [Date] <> null and [Date] <> ""
+    )
+in
+    #"Filtered Rows"
+
+    /*
+    ,
+        {"Date", "Description", "Transfer", "Balance", "Withdrawal", "Deposit"}
+        */
+
+// t8r_ImportTrxnsFromFilesNormalized
+let
+    Source = t8r_ImportTrxnsFromFiles,
+    Normalized = t8r_NormalizeTrxns_func(Source, MissingField.UseNull),
+    #"Changed Type" = Table.TransformColumnTypes(Normalized,{{"Date", type date}, {"Amount", Currency.Type}, {"Category", type text}, {"Description", type text}, {"Account", type text}, {"Account #", type text}, {"Institution", type text}})
+in
+    #"Changed Type"
+
+// t8r_ImportTrxnsFromFilesDeduped
+/**
+ * After me, the Deduped Transactions from Import should go to a step that combines them with sourcee transactions and then de-dupes again? No that's my job...
+ * @since 2022-06-06
+ */
+
+// todo:
+let
+    SourceTrxns = T8R_SOURCE_TRANSACTIONS,
+    ImportTrxns = t8r_ImportTrxnsFromFilesNormalized,
+    CombinedTrxns = Table.Combine({
+        Table.AddColumn(
+            SourceTrxns,
+            "IsFromImport",
+            each 0,
+            Number.Type
+        ),
+        Table.AddColumn(
+            ImportTrxns,
+            "IsFromImport",
+            each 1,
+            Number.Type
+        )
+    }),
+    //
+    #"Removed Duplicates" = Table.Distinct(CombinedTrxns, {"Date"})
+in
+    #"Removed Duplicates"
+
+// t8r_ImportFilesTransformed
+/**
+ * t8r_ImportFilesTransformed
+ *
+ * @since 2022-06-04
+ * @version 2022-06-05
+ */
+let
+    Source = t8r_ImportConfigsWithFiles,
+
+/*
+    #"Reordered Columns" = Table.ReorderColumns(
+        Source,
+        {"Config.ConfigName", "Config.FileNameMatches", "Config.UseFirstRowAsHeaders", "Content", "File.Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path", "ShouldImport", "Config.Note", "Config.FolderPath", "Config.TransformerName", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Month", "Config.Week", "Config.Check Number", "Config.Full Description", "Config.Transaction ID", "Config.Account ID", "Config.Date Added", "Config.slug"
+        }
+    ),
+*/
+     AddCsvDoc = Table.AddColumn(
+       Source,
+        "CsvDoc",
+        each t8r_ParseCsvFile_func(
+            [Content],
+             // Csv.Document(...) options
+            Text.Split(
+                // prevent null not text error.
+                [Config.CsvColumns] ?? "",
+                ","
+            ),
+            [Config.UseFirstRowAsHeaders] // Use FirstRowAsHeaders
+        )
+    ),
+    RemapCsvDoc = Table.AddColumn(
+        AddCsvDoc,
+        "CsvDocMapped",
+        each #"t8r_RemapCsv_func_+DELETE"([CsvDoc])
+    ),
+
+    Transformed = Table.AddColumn(
+        RemapCsvDoc,
+        "CsvDocTransformed",
+        each
+
+            // Expression.Evaluate(
+            // [Config.TransformerName],
+            // https://ssbi-blog.de/wp-content/uploads/2017/11/16-ExpressionEvaluate-in-a-calculated-column_solution.jpg
+            // [ _=_ ]
+            Function.Invoke(
+                // Expression.Evaluate will get the function to pass to Function.Invoke
+                Expression.Evaluate(
+                    [Config.TransformerName],
+                    #shared
+                ),
+                // Call with a couple arguments
+                // Like specificity over passing entire row, especially for testing.
+                // Could be old bad habits, or new good ones.
+                {
+                    [CsvDoc],
+                    [File.Name],
+                    _
+                }
+            )
+            /*
+            Record.AddField(
+                #shared,
+                "t8r_CurrentCsvDoc",
+                _
+            )
+            */
+        // )
+    )
+in
+    Transformed
+
+// t8r_RemapCsv_func_+DELETE
+let
+    t8r_MapCsv_func = (CsvDocument) =>
+        let
+            Source = CsvDocument
+        in
+            Source
+
+in
+    t8r_MapCsv_func
+
+// t8r_ImportFilesNormalized
+/**
+ * t8r_ImportFilesNormalized
+ *
+ * @since   2022-06-05
+ * @version 2022-06-05
+ *
+ */
+let
+    // Expanded the CsvDoc that passed through the Custom Transformers
+    Source = t8r_ImportFilesTransformed,
+    #"Removed Columns" = Table.RemoveColumns(
+        Source,
+        {"CsvDocMapped", "CsvDoc"}
+    ),
+    Normalized = Table.AddColumn(
+        #"Removed Columns",
+        "CsvNormalized",
+        each t8r_NormalizeTrxns_func(
+            [CsvDocTransformed],
+            MissingField.UseNull
+        )
+    ),
+    /*
+    #"Reordered Columns" = Table.ReorderColumns(
+        Normalized,
+        // todo: #fragile, nice to be dynamic list
+        {
+            "CsvNormalized", "CsvDocTransformed", "Config.ConfigName", "Config.UseFirstRowAsHeaders", "Config.CsvColumns", "Config.FileNameMatches", "Content", "File.Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path", "ShouldImport", "Config.Note", "Config.FolderPath", "Config.TransformerName", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Month", "Config.Week", "Config.Check Number", "Config.Full Description", "Config.Transaction ID", "Config.Account ID", "Config.Date Added", "Config.slug"
+        }
+    ),
+    */
+    TrxnsHeadersList = T8R_SOURCE_TRXNS_HEADERS_LIST,
+    //
+    SelectColumnCsvNormalized = Table.SelectColumns(
+        // #"Reordered Columns",
+        Normalized,
+        {"CsvNormalized"}
+    ),
+    #"Expanded CsvNormalized" = Table.ExpandTableColumn(
+        SelectColumnCsvNormalized,
+        "CsvNormalized",
+        TrxnsHeadersList
+    ),
+    #"Changed Type" = Table.TransformColumnTypes(
+        #"Expanded CsvNormalized",
+        {
+            {"Date", type date},
+            {"Amount", Currency.Type},
+            {"Description", type text},
+            {"Account", type text},
+            {"Account #", type text},
+            {"Institution", type text}
+        }
+    ),
+    #"Filtered Rows" = Table.SelectRows(
+        #"Changed Type",
+        each [Date] <> null
+    )
+in
+    #"Filtered Rows"
 
 // t8r_ImportFilesCombinedWithCurrent
 /**
@@ -752,10 +928,11 @@ in
 // t8r_ImportCsvTrxns_FINAL
 /**
  * @since   2022-06-05
- * @version 2022-06-05
+ * @version 2022-06-06
  */
 let
-    Source = t8r_ImportFilesNormalizedWithSlugDeduped,
+    Source = t8r_ImportTrxnsFromFilesDeduped,
+    //
     #"Removed Blank Rows" = Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
     #"Filtered Rows with Null Date" = Table.SelectRows(#"Removed Blank Rows", each [Date] <> null),
     // #tip Tweak Sorting Here or #todo Create a Param for FinalSortOrder
@@ -782,43 +959,6 @@ let
     // #"Promoted Headers" = Table.PromoteHeaders(#"Transposed Table", [PromoteAllScalars=true])
 in
     ConvertedToTable
-
-// TableAddColumnToBeginning
-/*
-  Table.AddColumn
-    // Move Custom Columns (FilePath, ShouldImport) to the beginning.
-    #"Reordered Columns1" = Table.ReorderColumns(
-        AddFilePath,
-        List.Zip()
-        {"FilePath", "ShouldImport""Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"})
-    ,
-*/
-/*
-            Table.AddColumn(table as table, newColumnName as text, columnGenerator as function, optional columnType as nullable type) as table
-https://docs.microsoft.com/en-us/powerquery-m/table-addcolumn
-            */
-let
-    Source = (table, newColumnName, columnGenerator, columnType) =>
-        let
-
-            AddedColumn = Table.AddColumn(
-                table,
-                newColumnName,
-                columnGenerator,
-                columnType
-            ),
-            // Move Custom Columns (FilePath, ShouldImport) to the beginning.
-            ReorderedColumns = Table.ReorderColumns(
-                AddedColumn,
-                List.Zip(
-                    { newColumnName },
-                    Table.ColumnNames(table)
-                )
-            )
-        in
-            ReorderedColumns
-in
-    Source
 
 // test-1-SmokeTest
 /* Disabled b/c of major refactoring 2022-06-05 */
@@ -1044,3 +1184,25 @@ let
     Name = #"Keep Name Column Only"[Name]
 in
     Name
+
+// t8r_ChangeTypeTrxnsTable
+let
+    Source = t8r_ImportTrxnsFromFiles,
+    Normalized = t8r_NormalizeTrxns_func(Source, MissingField.UseNull),
+    #"Changed Type" = Table.TransformColumnTypes(Normalized,{{"Date", type date}, {"Amount", Currency.Type}})
+in
+    #"Changed Type"
+
+// t8r_ChangeTypeTrxnsTable_func
+let
+    Source = (TrxnsTable) => let
+        Source = TrxnsTable,
+        Normalized = t8r_NormalizeTrxns_func(Source, MissingField.UseNull),
+        #"Changed Type" = Table.TransformColumnTypes(
+            Normalized,
+            {{"Date", type date}}
+        )
+    in
+        #"Changed Type"
+in
+    Source
