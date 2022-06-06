@@ -12,8 +12,12 @@ obsvault/.obsidian/plugins/recent-files-obsidian/data.json
 ~\$*.xlsx
 
 # Data (git add what you may want as part of repo)
-data/*
+#data/*
+# Keep Samples - syntax tip https://stackoverflow.com/a/5534865/269078
+# /* will not work, have to have !data/samples/  (and that's it).
+!data/samples/
 !data/samples/*
-*.csv
+#$ data/samples/.*/
+# *.csv
 obs*/.obsidian/plugins/recent-files-obsidian/data.json
 obs*/.obsidian/plugins/youhavebeenstaring-plugin/data.json
