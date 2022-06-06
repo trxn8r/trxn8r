@@ -1,11 +1,21 @@
-// T8R_CONFIG_WORKSHEET
+// T8R_CONFIG_MAIN
 /**
- * T8R_CONFIG_WORKSHEET
+ * T8R_CONFIG_MAIN
+ * #important
  *
  * Defaults to the first config if the specified one cannot be found.
+ * Other queries/params come back to me for data.
  *
- * @version 2022-06-02
+ * Merged in previous step `T8R_CONFIG_WORKSHEET` on 2022-06-06.
+ * Trying to reduce time it takes Excel to load.
+ * DAX Studio says queries are running fast, even the final one in a mere 20 ms.
+ * Excel is slow though, I feel it is:
+ * 1. Loading too many tables / analyzing too much in the [[Power Pivot Data Model]]; and/or
+ * 2. Fast Data Load setting freezing PC.
+ *
  * @since   2022-06-01
+ * @version 2022-06-02
+ * @version 2022-06-06
  */
 let
 
@@ -19,74 +29,20 @@ let
     CurrentWorkbook = Excel.CurrentWorkbook(),
     ConfigWorksheet = CurrentWorkbook{[Name=T8R_CONFIG_WORKSHEET_NAME]},
     ConfigTable = ConfigWorksheet[Content],
-    #"Filtered Rows" = Table.SelectRows(ConfigTable, each [Name] <> null)
-
-in
-    #"Filtered Rows"
-
-
-    /*
-    ,
-    SelectedConfig = Table.SelectRows(
-        ConfigTable,
-        each [Name] = ImportConfigName
+    #"Filtered Rows" = Table.SelectRows(ConfigTable, each [Name] <> null),
+    #"Removed Other Columns" = Table.SelectColumns(
+        #"Filtered Rows",
+        {"Name", "Value"}
     ),
-
-    FinalStep = SelectedConfig
-
-
-
-in
-    FinalStep
-
-*/
-
-
-
-    /* THIS IS SOMETHIONG TO DO WITH CSV IMPORT CONFIGS NOT THE OVERALL T8R CONFIG
-
-    ,
-    // Default to first config if none is found (TODO: might be bad...? Throw error instead? Ya...)
-    CheckIfConfigFound =
-        if (Table.RowCount(SelectedConfig) > 0) then
-            ImportConfigName
-        else
-            // Table.First(ImportConfigs)[configName],
-            // > Syntax: Table.First(table as table, optional default as any) as any
-
-            // THROW ERROR
-            // https://docs.microsoft.com/en-us/power-query/handlingerrors
-            error "TRXN8R Configuration Worksheet was not found :( Dying now....ice age..."
-    , // end CheckIfConfigFound
-
-    // prevent PQ editor stripping steps.
-    FinalStep = CheckIfConfigFound
-
-in
-    FinalStep
-   */
-
-
-
-
-/*
-    // ImportedConfigName = T8R_CONFIG_WORKSHEET["configName"],
-    //ImportConfigs = t8r_ImportConfigs,
-*/
-
-// T8R_CONFIG_EXCEL_TABLE_NAME
-"T8R_CONFIG_TABLE" meta [IsParameterQuery=true, List={"T8R_CONFIG_TABLE"}, DefaultValue="T8R_CONFIG_TABLE", Type="Text", IsParameterQueryRequired=true]
-
-// T8R_CONFIG_MAIN
-let
-    Source = T8R_CONFIG_WORKSHEET,
-    #"Removed Other Columns" = Table.SelectColumns(Source,{"Name", "Value"}),
     #"Transposed Table" = Table.Transpose(#"Removed Other Columns"),
     #"Promoted Headers" = Table.PromoteHeaders(#"Transposed Table", [PromoteAllScalars=true]),
     //#"Kept First Rows" = Table.FirstN(#"Promoted Headers",1)
     #"Kept First Rows" = #"Promoted Headers"{0}
 in
     #"Kept First Rows"
+
+// T8R_CONFIG_EXCEL_TABLE_NAME
+"T8R_CONFIG_TABLE" meta [IsParameterQuery=true, List={"T8R_CONFIG_TABLE"}, DefaultValue="T8R_CONFIG_TABLE", Type="Text", IsParameterQueryRequired=true]
 
 // T8R_IMPORT_FOLDER_PATH
 /**
@@ -131,14 +87,15 @@ let
 in
     Source
 
-// T8R_SOURCE_FILES
+// T8R_IMPORT_FILES
 /**
- * T8R_SOURCE_FILES
+ * T8R_IMPORT_FILES
  *
  * #Important
  *
  * @since   2022-06-05
  * @version 2022-06-05
+ * @version 2022-06-06 - Joined t8r_ImportFilesAll and T8R_SOURCE_FILES into T8R_IMPORT_FILES
  */
 let
     // param style - "Data source settings" will update this.
@@ -149,27 +106,19 @@ let
     Source = Folder.Files(
         ImportFolderPath
     ),
-    #"Reordered Columns" = Table.ReorderColumns(
+    #"Renamed Columns" = Table.RenameColumns(
         Source,
         {
-            "Content",
-            "Folder Path",
-            "Name",
-            "Extension",
-            "Date accessed",
-            "Date modified",
-            "Date created",
-            "Attributes"
+            {"Name", "ImportFile.Name"},
+            {"Extension", "ImportFile.Extension"},
+            {"Content", "ImportFile.Content"},
+            {"Folder Path", "ImportFile.Folder Path"}
         }
     ),
-    #"Sorted Rows" = Table.Sort(
-        #"Reordered Columns",
-        {
-            {"Folder Path", Order.Ascending},
-            {"Name", Order.Ascending}
-        }
+    #"Removed Other Columns" = Table.SelectColumns(
+        #"Renamed Columns",
+        {"ImportFile.Content", "ImportFile.Name", "ImportFile.Extension", "ImportFile.Folder Path"}
     ),
-
     /*
     > **Tip**
     > It's a good idea to create a new column and keep the original columns
@@ -179,49 +128,31 @@ let
 
     #"Merged Columns" = Table.CombineColumns(#"Sorted Rows",{"Folder Path", "Name"},Combiner.CombineTextByDelimiter("", QuoteStyle.None),"FilePath")
     */
-     AddFilePath = Table.AddColumn(
-         #"Sorted Rows",
+    /*
+     AddedFilePath = Table.AddColumn(
+         #"Removed Other Columns",
          "FilePath",
          each [Folder Path] & [Name]
      ),
-     // Move FilePath to the beginning.
-    #"Reordered Columns1" = Table.ReorderColumns(
-        AddFilePath,
-        {"FilePath", "Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"})
-in
-    #"Reordered Columns1"
-
-// t8r_ImportFilesAll
-let
-    // Alias Paramaters for for easy dumping through PQ Steps Editor
-    // SourceFolderPath = T8R_IMPORT_FOLDER_PATH,
-    // List all Files in Import Directory
-    // Source = Folder.Files(dirPath),
-    //Source = Folder.Files(SourceFolderPath),
-    Source = T8R_SOURCE_FILES,
-    #"Added ShouldImport" = Table.AddColumn(
-        Source,
-        "ShouldImport",
-        each [Extension] = ".csv",
+     */
+     /* Just realized this would be less optimal than Adding both Columns and performing one Column Reorder */
+    // #"Added ShouldImport" = TableAddColumnToBeginning(
+    AddedShouldImport = Table.AddColumn(
+        #"Removed Other Columns",
+        "ImportFile.ShouldImport",
+        each [ImportFile.Extension] = ".csv",
         type logical
+    ),
+    #"Sorted Rows" = Table.Sort(
+        AddedShouldImport,
+        {
+            {"ImportFile.ShouldImport", Order.Descending},
+            {"ImportFile.Folder Path", Order.Ascending},
+            {"ImportFile.Name", Order.Ascending}
+        }
     )
 in
-    #"Added ShouldImport"
-
-// t8r_ImportFilesFiltered
-/**
- * FilesToImport
- *
- * @since 2022-05-20
- */
-let
-    // Alias Paramaters for for easy dumping through PQ Steps Editor
-    FilesFiltered = Table.SelectRows(
-        t8r_ImportFilesAll,
-        each [ShouldImport] <> false
-    )
-in
-    FilesFiltered
+     #"Sorted Rows"
 
 // t8r_GetWorksheet
 /**
@@ -284,11 +215,15 @@ let
 in
     #"Changed Type"
 
-// t8r_ImportFilesFilteredWithConfigs
+// t8r_ImportConfigsWithFiles
+/**
+ * @since   2022-06-05
+ * @version 2022-06-06
+ */
 let
     // #DebugHelper
     ImportConfigs = t8r_ImportConfigs,
-    SourceFilesFiltered = t8r_ImportFilesFiltered,
+    ImportFiles = T8R_IMPORT_FILES,
 
     // https://support.microsoft.com/en-us/office/create-a-fuzzy-match-power-query-ffdd5082-c0c8-4c8e-a794-bd3962b90649
     /*
@@ -297,11 +232,13 @@ let
     Same diff? :shrug: (#ProTip Power Query Editor does not support emojis :sad_face:)
     */
     #"Merged Queries" = Table.FuzzyNestedJoin(
-        SourceFilesFiltered,
-        {"Name"},
         ImportConfigs,
         {"FileNameMatches"},
-        "t8r_ImportConfigs",
+
+        ImportFiles,
+        {"ImportFile.Name"},
+
+        "ImportFiles",
 
         // https://support.microsoft.com/en-us/office/merge-queries-power-query-fd157620-5470-4c0f-b132-7ca2616d17f9
         // #tip The FullOuter lets us see all the files and the configs, so we can #debug why they didn't match.
@@ -319,39 +256,85 @@ let
             Threshold=T8R_FUZZY_MATCH_THRESHOLD
         ]
     ),
-    // DEBUG: Look at above "Merged Queries" result and adjust the T8R_FUZZY_MATCH_THRESHOLD param as needed
-    // Want to Merge the configs with the files based on the name and name param.
-    #"Renamed Columns" = Table.RenameColumns(
-        #"Merged Queries",
-        {
-            {"t8r_ImportConfigs", "Config"},
-            {"Name", "File.Name"}
-        }
-    ),
-    #"Expanded Config" = Table.ExpandTableColumn(
-        #"Renamed Columns",
-        "Config",
-        // WARNING: BE SURE THIS LIST MATCHES WHAT IS IN THE SPREADSHEET COLUMN NAMES...
-        // Table.ColumnNames(_[Config]{0}),
-        {
-            "ConfigName",
-            "Note",
-            "FileNameMatches",
-            "UseFirstRowAsHeaders",
-            "CsvColumns",
-            "FolderPath",
-            "TransformerName",
-            "RemainingFieldsAreDynamic", "Date", "Description", "Category", "Amount", "Account", "Account #", "Institution", "Month", "Week", "Check Number", "Full Description", "Transaction ID", "Account ID", "Date Added", "slug"
-        },
-        {
-            "Config.ConfigName", "Config.Note", "Config.FileNameMatches", "Config.UseFirstRowAsHeaders", "Config.CsvColumns", "Config.FolderPath", "Config.TransformerName", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Month", "Config.Week", "Config.Check Number", "Config.Full Description", "Config.Transaction ID", "Config.Account ID", "Config.Date Added", "Config.slug"
-        }
-    )
+    #"Filtered Rows" = Table.SelectRows(#"Merged Queries", each [ConfigName] <> null and [ConfigName] <> "")
 in
-    #"Expanded Config"
+    #"Filtered Rows"
 
 // T8R_FUZZY_MATCH_THRESHOLD
 0.1 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+
+// t8r_ImportConfigsWithFiles (2)
+/**
+ *
+ * @since 2022-06-06
+ * @version 2022-06-06
+ */
+let
+    Source = t8r_ImportConfigsWithFiles,
+    ConvertCsvColumnsToList = Table.AddColumn(
+        Source,
+        "CsvColumnsList",
+        each Text.Split(
+            // prevent null not text error.
+            [CsvColumns] ?? "",
+            ","
+        )
+    ),
+    #"Reordered Columns1" = Table.ReorderColumns(ConvertCsvColumnsToList,{"ImportFiles", "CsvColumnsList", "ConfigName", "Note", "FileNameMatches", "UseFirstRowAsHeaders", "FolderPath", "TransformerName", "IsTransformerValid", "CsvColumns", "RemainingFieldsAreDynamic", "Date", "Description", "Category", "Amount", "Account", "Account #", "Institution", "Column8", "Column9", "Column10", "slug", "Column21", "Column22", "Column23", "Column24"}),
+    AddCsvDoc = Table.AddColumn(
+       #"Reordered Columns1",
+        "CsvDoc",
+        each t8r_TransformCsvFile_func(
+            [ImportFile.Content],
+            [CsvColumnsList],
+            [UseFirstRowAsHeaders]
+        )
+    ),
+    #"Expanded ImportFiles" = Table.ExpandTableColumn(
+        AddCsvDoc,
+        "ImportFiles",
+        {"ImportFile.Content", "ImportFile.Name", "ImportFile.Extension", "ImportFile.Folder Path", "ImportFile.ShouldImport"}
+    )
+in
+    #"Expanded ImportFiles"
+
+// t8r_TransformCsvFile_func
+let
+    TransformCsv_func = (
+        FileContent as binary,
+        ColumnsList as list,
+        UseFirstRowAsHeaders
+        // Renames as list
+        /*, Delimter as text*/
+    ) =>
+        let
+            Delimiter = ",",
+            Cols =
+                if(List.IsEmpty(ColumnsList)) then
+                    null
+                else
+                    ColumnsList,
+
+            CsvDoc = Csv.Document(
+                FileContent,
+                Cols,
+                Delimiter
+            ),
+
+            PromotedHeaders =
+                if (UseFirstRowAsHeaders = false) then
+                    // nothing
+                    CsvDoc
+                else
+                  Table.PromoteHeaders(CsvDoc)
+
+
+            //Mapped = t8r_MapTrxns(PromotedHeaders)
+
+            // Now this result should wind up going through [[t8r_RemapCsv_func]] next.
+        in PromotedHeaders
+in
+    TransformCsv_func
 
 // t8r_ImportFilesTransformed
 /**
@@ -361,7 +344,7 @@ in
  * @version 2022-06-05
  */
 let
-    Source = t8r_ImportFilesFilteredWithConfigs,
+    Source = t8r_ImportConfigsWithFiles,
 
 /*
     #"Reordered Columns" = Table.ReorderColumns(
@@ -426,44 +409,6 @@ let
 in
     Transformed
 
-// t8r_TransformCsvFile_func
-let
-    TransformCsv_func = (
-        FileContent as binary,
-        ColumnsList as list,
-        UseFirstRowAsHeaders
-        // Renames as list
-        /*, Delimter as text*/
-    ) =>
-        let
-            Delimiter = ",",
-            Cols =
-                if(List.IsEmpty(ColumnsList)) then
-                    null
-                else
-                    ColumnsList,
-
-            CsvDoc = Csv.Document(
-                FileContent,
-                Cols,
-                Delimiter
-            ),
-
-            PromotedHeaders =
-                if (UseFirstRowAsHeaders = false) then
-                    // nothing
-                    CsvDoc
-                else
-                  Table.PromoteHeaders(CsvDoc)
-
-
-            //Mapped = t8r_MapTrxns(PromotedHeaders)
-
-            // Now this result should wind up going through [[t8r_RemapCsv_func]] next.
-        in PromotedHeaders
-in
-    TransformCsv_func
-
 // t8r_RemapCsv_func
 let
     t8r_MapCsv_func = (CsvDocument) =>
@@ -504,7 +449,7 @@ let
             "CsvNormalized", "CsvDocTransformed", "Config.ConfigName", "Config.UseFirstRowAsHeaders", "Config.CsvColumns", "Config.FileNameMatches", "Content", "File.Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path", "ShouldImport", "Config.Note", "Config.FolderPath", "Config.TransformerName", "Config.RemainingFieldsAreDynamic", "Config.Date", "Config.Description", "Config.Category", "Config.Amount", "Config.Account", "Config.Account #", "Config.Institution", "Config.Month", "Config.Week", "Config.Check Number", "Config.Full Description", "Config.Transaction ID", "Config.Account ID", "Config.Date Added", "Config.slug"
         }
     ),
-    TrxnsHeadersList = t8r_TrxnsHeadersList,
+    TrxnsHeadersList = T8R_SOURCE_TRXNS_HEADERS_LIST,
     //
     SelectColumnCsvNormalized = Table.SelectColumns(
         #"Reordered Columns",
@@ -533,7 +478,7 @@ let
 in
     #"Filtered Rows"
 
-// T8R_SOURCE_WORKBOOK_PATH
+// T8R_SOURCE_WORKBOOK_PATH_PROCESSED
 /**
  * @since   2022-06-01
  * @version 2022-0-03
@@ -558,7 +503,7 @@ in
  */
 let
     // alias the var here to see it in "Applied Steps" for painless debugging
-    WorkbookPath = T8R_SOURCE_WORKBOOK_PATH,
+    WorkbookPath = T8R_SOURCE_WORKBOOK_PATH_PROCESSED,
     //
     Workbook = Excel.Workbook(
         File.Contents(WorkbookPath),
@@ -570,7 +515,13 @@ in
 
 // T8R_SOURCE_TRANSACTIONS
 /**
- * @since 2022-06-05
+ * T8R_SOURCE_TRANSACTIONS
+ * #important
+ *
+ * #todo Possibly shorten name to T8R_SOURCE_TRXNS ?
+ *
+ * @since   2022-06-05
+ * @version 2022-06-06
  */
 let
     SourceWorkbook = T8R_SOURCE_WORKBOOK,
@@ -581,11 +532,12 @@ let
     Data = Worksheet[Data],
 
     // todo: Put this in to fix new sample download but is it needed? 2022-06-05
-    PromtedHeaders = Table.PromoteHeaders(Data),
+    PromotedHeaders = Table.PromoteHeaders(Data),
 
+    /*
     //. Generated by Power Query
     #"Removed Blank Rows MaybeDelete" = Table.SelectRows(
-        PromtedHeaders,
+        PromotedHeaders,
         each not List.IsEmpty(
             List.RemoveMatchingItems(
                 Record.FieldValues(_),
@@ -593,8 +545,15 @@ let
             )
         )
     ),
+    */
+    // Safe to say that null Date's are empty rows, right? Voids our comparison later an yway.
+    // lol, ya,m it would break the below TransformColumnTypes too.
+    #"Removed null Dates" = Table.SelectRows(
+        PromotedHeaders,
+        each [Date] <> null
+    ),
     #"Changed Type" = Table.TransformColumnTypes(
-        #"Removed Blank Rows MaybeDelete",
+        #"Removed null Dates",
         {
             {"Date", type date},
             {"Amount", Currency.Type}
@@ -622,7 +581,7 @@ let
 in
     DefaultOverwrite
 
-// t8r_TrxnsHeadersList
+// T8R_SOURCE_TRXNS_HEADERS_LIST
 /**
  * t8r_TrxnsHeadersList
  *
@@ -678,7 +637,7 @@ in
  * @version 2022-06-04
  */
 let
-    t8r_TrxnsHeadersList = t8r_TrxnsHeadersList,
+    t8r_TrxnsHeadersList = T8R_SOURCE_TRXNS_HEADERS_LIST,
     t8r_NormalizeCsvDoc_func = (CsvDoc) =>
 
     let  NormalizedCols = Table.SelectColumns(
@@ -811,7 +770,7 @@ in
  */
 
 let
-    Source = t8r_TrxnsHeadersList,
+    Source = T8R_SOURCE_TRXNS_HEADERS_LIST,
     ConvertedToTable = Table.FromList(
         Source,
         Splitter.SplitByNothing(),
@@ -823,6 +782,43 @@ let
     // #"Promoted Headers" = Table.PromoteHeaders(#"Transposed Table", [PromoteAllScalars=true])
 in
     ConvertedToTable
+
+// TableAddColumnToBeginning
+/*
+  Table.AddColumn
+    // Move Custom Columns (FilePath, ShouldImport) to the beginning.
+    #"Reordered Columns1" = Table.ReorderColumns(
+        AddFilePath,
+        List.Zip()
+        {"FilePath", "ShouldImport""Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"})
+    ,
+*/
+/*
+            Table.AddColumn(table as table, newColumnName as text, columnGenerator as function, optional columnType as nullable type) as table
+https://docs.microsoft.com/en-us/powerquery-m/table-addcolumn
+            */
+let
+    Source = (table, newColumnName, columnGenerator, columnType) =>
+        let
+
+            AddedColumn = Table.AddColumn(
+                table,
+                newColumnName,
+                columnGenerator,
+                columnType
+            ),
+            // Move Custom Columns (FilePath, ShouldImport) to the beginning.
+            ReorderedColumns = Table.ReorderColumns(
+                AddedColumn,
+                List.Zip(
+                    { newColumnName },
+                    Table.ColumnNames(table)
+                )
+            )
+        in
+            ReorderedColumns
+in
+    Source
 
 // test-1-SmokeTest
 /* Disabled b/c of major refactoring 2022-06-05 */
@@ -1048,59 +1044,3 @@ let
     Name = #"Keep Name Column Only"[Name]
 in
     Name
-
-// T8R_SOURCE_FILES_CSV
-let
-    Source = T8R_SOURCE_FILES,
-    #"Filtered Rows" = Table.SelectRows(Source, each ([Extension] = ".csv"))
-in
-    #"Filtered Rows"
-
-// T8R_SOURCE_FILES_WORKBOOKS
-/**
- * T8R_SOURCE_FILES_WORKBOOKS
- *
- * @since   2022-06-05
- * @version 2022-06-06
- *
- */
-let
-    SourceDir =- T8R_IMPORT_FOLDER_PATH,
-    SourceFiles = T8R_SOURCE_FILES,
-    //
-    #"Filtered Rows" = Table.SelectRows(
-        SourceFiles,
-        each ([Extension] = ".xlsx"
-    ))
-
-    /*
-    ,
-    #"Replaced Value" = Table.ReplaceValue(
-        #"Filtered Rows",
-        SourceDir,
-        "",
-        Replacer.ReplaceText,{"FilePath"}
-    ),
-
-    #"Renamed Columns" = Table.RenameColumns(
-        #"Filtered Rows",
-        {{"FilePath", "FilePathRelative"}}
-    )
-    */
-in
-     #"Filtered Rows"
-
-// T8R_SOURCE_FILES_WORKBOOKS_LIST
-/**
- * @since 2022-06-05
- */
-let
-    Source = T8R_SOURCE_FILES_WORKBOOKS,
-    #"Removed Other Columns" = Table.SelectColumns(
-        Source,
-        {"Name"}
-    ),
-    // Convert to Record?
-    FilePath = #"Removed Other Columns"[Name]
-in
-    FilePath
