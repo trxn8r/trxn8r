@@ -88,7 +88,7 @@ let
 in
     #"Kept First Rows"
 
-// T8R_SOURCE_FOLDER_PATH
+// T8R_IMPORT_FOLDER_PATH
 /**
  * T8R_IMPORT_DIR
  *
@@ -127,24 +127,78 @@ in
 
 // T8R_ROOT_FOLDER_PATH
 let
-    Source = T8R_CONFIG_WORKSHEET,
-    #"Removed Other Columns" = Table.SelectColumns(Source,{"Name", "Value"}),
-    #"Transposed Table" = Table.Transpose(#"Removed Other Columns"),
-    #"Promoted Headers" = Table.PromoteHeaders(#"Transposed Table", [PromoteAllScalars=true]),
-    //#"Kept First Rows" = Table.FirstN(#"Promoted Headers",1)
-    #"Kept First Rows" = #"Promoted Headers"{0},
-    // #"Kept First Rows" = Table.FirstN(#"Promoted Headers",1)
-    T8R_ROOT_FOLDER_PATH1 = #"Kept First Rows"[T8R_ROOT_FOLDER_PATH]
+    Source = T8R_CONFIG_MAIN[T8R_ROOT_FOLDER_PATH]
 in
-    T8R_ROOT_FOLDER_PATH1
+    Source
+
+// T8R_SOURCE_FILES
+/**
+ * T8R_SOURCE_FILES
+ *
+ * #Important
+ *
+ * @since   2022-06-05
+ * @version 2022-06-05
+ */
+let
+    // param style - "Data source settings" will update this.
+    // Source = Folder.Files("W:\src\trxn8r-data"),
+    // Config Value from Worksheet, found it easier than managing Data source and Params.
+    // Added benefit of being saveable in the Excel sheet.
+    ImportFolderPath = T8R_IMPORT_FOLDER_PATH,
+    Source = Folder.Files(
+        ImportFolderPath
+    ),
+    #"Reordered Columns" = Table.ReorderColumns(
+        Source,
+        {
+            "Content",
+            "Folder Path",
+            "Name",
+            "Extension",
+            "Date accessed",
+            "Date modified",
+            "Date created",
+            "Attributes"
+        }
+    ),
+    #"Sorted Rows" = Table.Sort(
+        #"Reordered Columns",
+        {
+            {"Folder Path", Order.Ascending},
+            {"Name", Order.Ascending}
+        }
+    ),
+
+    /*
+    > **Tip**
+    > It's a good idea to create a new column and keep the original columns
+    > so you can better prevent refresh errors that might happen down the road.
+    >
+    > -- https://support.microsoft.com/en-us/office/merge-columns-power-query-80ec9e1e-1eb6-4048-b500-d5d42d9f0a8d#supAppliesToTableContainer
+
+    #"Merged Columns" = Table.CombineColumns(#"Sorted Rows",{"Folder Path", "Name"},Combiner.CombineTextByDelimiter("", QuoteStyle.None),"FilePath")
+    */
+     AddFilePath = Table.AddColumn(
+         #"Sorted Rows",
+         "FilePath",
+         each [Folder Path] & [Name]
+     ),
+     // Move FilePath to the beginning.
+    #"Reordered Columns1" = Table.ReorderColumns(
+        AddFilePath,
+        {"FilePath", "Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"})
+in
+    #"Reordered Columns1"
 
 // t8r_ImportFilesAll
 let
     // Alias Paramaters for for easy dumping through PQ Steps Editor
-    SourceFolderPath = T8R_SOURCE_FOLDER_PATH,
+    // SourceFolderPath = T8R_IMPORT_FOLDER_PATH,
     // List all Files in Import Directory
     // Source = Folder.Files(dirPath),
-    Source = Folder.Files(SourceFolderPath),
+    //Source = Folder.Files(SourceFolderPath),
+    Source = T8R_SOURCE_FILES,
     #"Added ShouldImport" = Table.AddColumn(
         Source,
         "ShouldImport",
@@ -339,7 +393,6 @@ let
     Transformed = Table.AddColumn(
         RemapCsvDoc,
         "CsvDocTransformed",
-
         each
 
             // Expression.Evaluate(
@@ -988,58 +1041,13 @@ in
 // T8R_SOURCE_WORKBOOK_PATH_PARAM
 "W:\src\trxn8r-data\samples\Tiller-Foundation-Template.sample1.with-dummy-trxns.xlsx" meta [IsParameterQuery=true, List={"W:\src\trxn8r-data\samples\Tiller-Foundation-Template.sample1.with-dummy-trxns.xlsx"}, DefaultValue="W:\src\trxn8r-data\samples\Tiller-Foundation-Template.sample1.with-dummy-trxns.xlsx", Type="Text", IsParameterQueryRequired=true]
 
-// t8r_GetSourceWorkbookItem_func_DELETE_DUPE_OF_GetWorksheet
-/*
-* @since 2022-06-05*
-* @version 2022-06-06
-*/
+// t8r_SourceWorkbookWorksheetNamesList
 let
-    Source = (ItemName) => let
-        SourceWorkbook = T8R_SOURCE_WORKBOOK,
-        //
-        Table =
-            try
-                SourceWorkbook{
-                    [Name=ItemName]
-                }[Data]
-            otherwise
-                // Sheet does not exist, return an empty table, not using any for now, saving for future. 2022-06-05
-                #table({}, {})
-    in
-        Table
+    Source = T8R_SOURCE_WORKBOOK,
+    #"Keep Name Column Only" = Table.SelectColumns(Source,{"Name"}),
+    Name = #"Keep Name Column Only"[Name]
 in
-    Source
-
-// T8R_SOURCE_FILES
-/**
- * T8R_SOURCE_FILES
- *
- * @since 2022-06-05
- *
- */
-let
-    Source = Folder.Files("W:\src\trxn8r-data"),
-    #"Reordered Columns" = Table.ReorderColumns(Source,{"Content", "Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"}),
-    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Content"}),
-    #"Sorted Rows" = Table.Sort(#"Removed Columns",{{"Folder Path", Order.Ascending}, {"Name", Order.Ascending}}),
-
-    /*
-    > **Tip**
-    > It's a good idea to create a new column and keep the original columns
-    > so you can better prevent refresh errors that might happen down the road.
-    >
-    > -- https://support.microsoft.com/en-us/office/merge-columns-power-query-80ec9e1e-1eb6-4048-b500-d5d42d9f0a8d#supAppliesToTableContainer
-
-    #"Merged Columns" = Table.CombineColumns(#"Sorted Rows",{"Folder Path", "Name"},Combiner.CombineTextByDelimiter("", QuoteStyle.None),"FilePath")
-    */
-     AddFilePath = Table.AddColumn(
-         #"Sorted Rows",
-         "FilePath",
-         each [Folder Path] & [Name]
-     ),
-    #"Reordered Columns1" = Table.ReorderColumns(AddFilePath,{"FilePath", "Folder Path", "Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes"})
-in
-    #"Reordered Columns1"
+    Name
 
 // T8R_SOURCE_FILES_CSV
 let
@@ -1057,7 +1065,7 @@ in
  *
  */
 let
-    SourceDir =- T8R_SOURCE_FOLDER_PATH,
+    SourceDir =- T8R_IMPORT_FOLDER_PATH,
     SourceFiles = T8R_SOURCE_FILES,
     //
     #"Filtered Rows" = Table.SelectRows(
@@ -1096,11 +1104,3 @@ let
     FilePath = #"Removed Other Columns"[Name]
 in
     FilePath
-
-// t8r_SourceWorkbookWorksheetNamesList
-let
-    Source = T8R_SOURCE_WORKBOOK,
-    #"Keep Name Column Only" = Table.SelectColumns(Source,{"Name"}),
-    Name = #"Keep Name Column Only"[Name]
-in
-    Name
